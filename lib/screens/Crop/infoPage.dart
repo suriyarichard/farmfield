@@ -1,33 +1,34 @@
 import 'package:farmfield/pallets/color.dart';
-import 'package:farmfield/widgets/crop/croptile.dart';
 import 'package:farmfield/widgets/crop/timeline.dart';
 import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CropList extends StatefulWidget {
-  const CropList({super.key});
+class InfoScreen extends StatefulWidget {
+  const InfoScreen({super.key});
 
   @override
-  State<CropList> createState() => _CropListState();
+  State<InfoScreen> createState() => _InfoScreenState();
 }
 
-class _CropListState extends State<CropList> {
+class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // backgroundColor: AppColor.backgroundColor,
-
       appBar: AppBar(
         toolbarHeight: 90,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
               title: Text(
-                'Track the Crop',
+                'InfoScreen',
                 style: GoogleFonts.rubik(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
@@ -45,7 +46,6 @@ class _CropListState extends State<CropList> {
         ),
         elevation: 1,
         backgroundColor: Colors.white,
-        // backgroundColor: AppColor.backgroundColor,
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -56,55 +56,28 @@ class _CropListState extends State<CropList> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Your CropList",
-                      style: GoogleFonts.rubik(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          color: AppColor.titleColor),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // showModalBottomSheet(
-                        //     isScrollControlled: true,
-                        //     backgroundColor: AppColor.bodyColor,
-                        //     shape: const RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.only(
-                        //             topLeft: Radius.circular(20),
-                        //             topRight: Radius.circular(20))),
-                        //     elevation: 20,
-                        // context: context,
-                        // builder: (context) {
-                        //   // return AddComplaint(
-                        //   //     refresh: () => setState(() {}));
-                        // });
-                      },
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Add New",
-                          style: GoogleFonts.rubik(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              color: Colors.black),
-                        ),
+
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: SizedBox(
+                    height: 200.0,
+                    width: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: const Image(
+                        image: NetworkImage(
+                            'https://cdn.pixabay.com/photo/2022/04/06/12/49/countryside-7115530_1280.jpg'),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ],
+                  ),
                 ),
                 // ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: CropTile(),
-                ),
                 // const SenorCard(),
+                const Timeline(),
 
                 // FutureBuilder(
                 //   future: complaintService.get(context),
@@ -120,7 +93,7 @@ class _CropListState extends State<CropList> {
                 //       // Call the function from the instance of MyClass and display the fetched data
                 //       complaints = snapshot.data;
                 //       if (complaints.length == 0) {
-                //         return NoData(text: 'No CropList Available');
+                //         return NoData(text: 'No InfoScreen Available');
                 //       } else {
                 //         return SizedBox(
                 //           height: MediaQuery.of(context).size.height * 0.75,
@@ -149,3 +122,20 @@ class _CropListState extends State<CropList> {
     );
   }
 }
+
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter/src/widgets/framework.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
+
+// class InfoScreen extends StatelessWidget {
+//   const InfoScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Scaffold(
+//         body: Center(
+//       child: Text("suriya prakash"),
+//     ));
+//   }
+// }
