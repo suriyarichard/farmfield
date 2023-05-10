@@ -1,18 +1,17 @@
 import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:farmfield/widgets/dashboard/sensors.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
-// import 'package:farmfield/widgets/pieChart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DashBoradScreen extends StatefulWidget {
-  const DashBoradScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<DashBoradScreen> createState() => _DashBoradScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _DashBoradScreenState extends State<DashBoradScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   List navigateOptions = [
     "Overview",
     "Corn",
@@ -74,11 +73,11 @@ class _DashBoradScreenState extends State<DashBoradScreen> {
               },
             ),
           ),
-          const Sensors()
+          const Sensors(),
           // const SizedBox(height: 20),
           // WeatherCard(),
           // const Center(child: WeatherCard()),
-          // SenorCard(),
+          SenorCard(),
         ]),
       ),
     );

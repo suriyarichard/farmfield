@@ -6,7 +6,7 @@ class WeatherCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: 300,
         height: 200,
         // padding: const EdgeInsets.all(
