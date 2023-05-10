@@ -3,6 +3,7 @@ import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
+import '../weatherapp/weatherapp.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});
@@ -18,6 +19,7 @@ class _DashBoardState extends State<DashBoard> {
     CropList(),
     MapScreen(),
     Profile(),
+    Weather()
   ];
   void onItemTapped(int index) {
     setState(() {
@@ -77,6 +79,12 @@ class _DashBoardState extends State<DashBoard> {
                 ),
                 label: 'profile',
               ),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.cloud,
+                    size: 25,
+                  ),
+                  label: 'Weather'),
             ],
             currentIndex: selectedIndex,
             // fixedColor: Colors.deepPurple,
