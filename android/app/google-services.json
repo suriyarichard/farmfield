@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "134981862263",
+    "project_id": "farmfield-64483",
+    "storage_bucket": "farmfield-64483.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134981862263:android:d550e870f969fe50279772",
+        "android_client_info": {
+          "package_name": "com.example.farmfield"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134981862263-cosuvdutqpsvj9u01klie7fr3vob5ino.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.farmfield",
+            "certificate_hash": "1334528d529a1abdb80b6ec58b299bde553d6409"
+          }
+        },
+        {
+          "client_id": "134981862263-c3foguf0miqndrfo7i4140qf8m9iimsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyWozaKzggBHqQ-Js5CaTH3U1J7RXAJYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134981862263-c3foguf0miqndrfo7i4140qf8m9iimsq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "134981862263-9g88fipkq5ps51ds6upb36n1cpeusoj5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.farmfield"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
