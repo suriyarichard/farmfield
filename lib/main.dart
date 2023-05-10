@@ -1,4 +1,4 @@
-import 'package:farmfield/screens/dashboard/dashboardScreen.dart';
+import 'package:farmfield/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FarmField',
-      home: DashBoradScreen(),
+      home: DashBoard(),
     );
   }
 }
