@@ -1,7 +1,6 @@
 import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
-import 'package:farmfield/expense/homepage.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import '../weatherapp/weatherapp.dart';
@@ -21,7 +20,7 @@ class _DashBoardState extends State<DashBoard> {
     MapScreen(),
     Profile(),
     Weather()
-    // HomePage(),
+
   ];
   void onItemTapped(int index) {
     setState(() {
