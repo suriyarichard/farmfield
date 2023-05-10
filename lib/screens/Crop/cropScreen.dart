@@ -1,7 +1,5 @@
 import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/widgets/crop/croptile.dart';
-import 'package:farmfield/widgets/crop/timeline.dart';
-import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -100,10 +98,22 @@ class _CropListState extends State<CropList> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: CropTile(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.75,
+                  width: 340,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return CropTile();
+                    },
+                  ),
                 ),
+
+                // const Padding(
+                //   padding: EdgeInsets.all(15.0),
+                //   child: CropTile(),
+                // ),
+
                 // const SenorCard(),
 
                 // FutureBuilder(
