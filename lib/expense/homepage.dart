@@ -39,14 +39,14 @@ class _HomePageState extends State<HomePage> {
           return StatefulBuilder(
             builder: (BuildContext context, setState) {
               return AlertDialog(
-                title: Text('N E W  T R A N S A C T I O N'),
+                title: const Text('N E W  T R A N S A C T I O N'),
                 content: SingleChildScrollView(
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text('Expense'),
+                          const Text('Expense'),
                           Switch(
                             value: _isIncome,
                             onChanged: (newValue) {
@@ -55,10 +55,10 @@ class _HomePageState extends State<HomePage> {
                               });
                             },
                           ),
-                          Text('Income'),
+                          const Text('Income'),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                             child: Form(
                               key: _formKey,
                               child: TextFormField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: 'Amount?',
                                 ),
@@ -83,14 +83,14 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
                         children: [
                           Expanded(
                             child: TextField(
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: 'For what?',
                               ),
@@ -106,14 +106,14 @@ class _HomePageState extends State<HomePage> {
                   MaterialButton(
                     color: Colors.grey[600],
                     child:
-                        Text('Cancel', style: TextStyle(color: Colors.white)),
+                        const Text('Cancel', style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
                   ),
                   MaterialButton(
                     color: Colors.grey[600],
-                    child: Text('Enter', style: TextStyle(color: Colors.white)),
+                    child: const Text('Enter', style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _enterTransaction();
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
   bool timerHasStarted = false;
   void startLoading() {
     timerHasStarted = true;
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (GoogleSheetsApi.loading == false) {
         setState(() {});
         timer.cancel();
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             TopNeuCard(
@@ -168,12 +168,12 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Expanded(
                         child: GoogleSheetsApi.loading == true
-                            ? LoadingCircle()
+                            ? const LoadingCircle()
                             : ListView.builder(
                                 itemCount:
                                     GoogleSheetsApi.currentTransactions.length,

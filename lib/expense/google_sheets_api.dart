@@ -19,7 +19,7 @@ class GoogleSheetsApi {
   };
 
   // set up & connect to the spreadsheet
-  static final _spreadsheetId =
+  static const _spreadsheetId =
       '232309452284-compute@developer.gserviceaccount.com';
   static final _gsheets = GSheets(_credentials);
   static Worksheet? _worksheet;

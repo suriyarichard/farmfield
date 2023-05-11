@@ -35,7 +35,7 @@ class _InfoScreenState extends State<InfoScreen> {
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
-                'Let’s help you',
+                'Let\'s help you',
                 style: GoogleFonts.rubik(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,

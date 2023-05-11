@@ -9,7 +9,7 @@ class LoadingCircle extends StatelessWidget {
       child: Container(
         height: 25,
         width: 25,
-        child: CircularProgressIndicator(),
+        child: const CircularProgressIndicator(),
       ),
     );
   }

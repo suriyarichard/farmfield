@@ -16,7 +16,7 @@ class PlusButton extends StatelessWidget {
           color: Colors.grey[500],
           shape: BoxShape.circle,
         ),
-        child: Center(
+        child: const Center(
           child: Text(
             '+',
             style: TextStyle(color: Colors.white, fontSize: 25),

@@ -38,6 +38,7 @@ class _DashBoardState extends State<DashBoard> {
           child: pages.elementAt(selectedIndex),
         ),
         bottomNavigationBar: Container(
+          height: 70,
           clipBehavior:
               Clip.hardEdge, //or better look(and cost) using Clip.antiAlias,
           decoration: const BoxDecoration(
@@ -79,7 +80,7 @@ class _DashBoardState extends State<DashBoard> {
                   Icons.account_circle,
                   size: 25,
                 ),
-                label: 'profile',
+                label: 'Profile',
               ),
               BottomNavigationBarItem(
                   icon: Icon(

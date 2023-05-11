@@ -1,8 +1,10 @@
-import 'package:farmfield/widgets/dashboard/moister.dart';
-import 'package:farmfield/widgets/dashboard/sensors.dart';
+import '../../widgets/dashboard/moister.dart';
+import '../../widgets/dashboard/sensors.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  
+
   List navigateOptions = [
     "Overview",
     "Corn",
@@ -20,14 +24,16 @@ class _HomeScreenState extends State<HomeScreen> {
     "Profile",
   ];
 
+  
+
+
   @override
   Widget build(BuildContext context) {
+
+    
     return Expanded(
         child: SingleChildScrollView(
       child: Column(children: [
-        // const SizedBox(
-        //   height: 60,
-        // ),
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: Row(
@@ -58,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18),
-                              side: BorderSide(color: Colors.black)))),
+                              side: const BorderSide(color: Colors.black)))),
                   child: Text(
                     "${navigateOptions[index]}",
                     style: const TextStyle(
@@ -75,9 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
         // Sensors(),
         // const SizedBox(height: 20),
-        WeatherCard(),
+        const WeatherCard(),
         // const Center(child: WeatherCard()),
-        SenorCard(),
+        const SenorCard(),
       ]),
     ));
   }
