@@ -1,10 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/pallets/color.dart';
+import 'package:farmfield/services/infoCrop.service.dart';
+import 'package:farmfield/widgets/button/smallbutton.dart';
+import 'package:farmfield/widgets/crop/addtimeline.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:farmfield/widgets/crop/timelinecard.dart';
 
-class Timeline extends StatelessWidget {
+class Timeline extends StatefulWidget {
   const Timeline({super.key});
+
+  @override
+  State<Timeline> createState() => _TimelineState();
+}
+
+class _TimelineState extends State<Timeline> {
+  InfoCropService infoCropService = InfoCropService();
+  var timelinehistroy;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +35,29 @@ class Timeline extends StatelessWidget {
                     fontSize: 18,
                     color: AppColor.titleColor),
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Set up",
-                  style: GoogleFonts.rubik(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      color: Colors.green),
+              GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: AppColor.bodyColor,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20))),
+                      elevation: 20,
+                      context: context,
+                      builder: (context) {
+                        return AddTimeline(refresh: () => setState(() {}));
+                      });
+                },
+                child: SmallButton(
+                  child: Text(
+                    "Set up ",
+                    style: GoogleFonts.rubik(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ],
@@ -38,10 +65,51 @@ class Timeline extends StatelessWidget {
           const SizedBox(
             height: 6,
           ),
-          Padding(
-            padding: EdgeInsets.all(25.0),
-            child: TimeLineCard(),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.all(25.0),
+          //   child: TimeLineCard(
+          //     createdDateAndTime:[],
+          //   ),
+          // ),
+          FutureBuilder(
+              future: infoCropService.get(),
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  // Display a loading spinner while waiting for data
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  // Display an error message if the future throws an error
+                  return Text("Error: ${snapshot.error}");
+                } else {
+                  timelinehistroy = snapshot.data;
+                  // print("hello ${snapshot.data['Name']}");
+                  // Call the function from the instance of MyClass and display the fetched data
+                  if (timelinehistroy.length == 0) {
+                    return Text("hellp");
+                    // return NoData(text: 'No Profile Available', img: 'https://assets3.lottiefiles.com/packages/lf20_2K2lEIcWwq.json',);
+                  } else {
+                    // Call the function from the instance of MyClass and display the fetched data
+
+                    // return Text(snapshot.data[0]['totalweight'].toString());
+                    // return Text(snapshot.data[0]['name'].toString());
+                    return SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.75,
+                      width: 325,
+                      child: ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return TimeLineCard(
+                            createdDateAndTime:
+                                snapshot.data[index]['createdAt'] as Timestamp,
+                            eventName: snapshot.data[index]['eventname'],
+                            amount: snapshot.data[index]['amount'],
+                          );
+                        },
+                      ),
+                    );
+                  }
+                }
+              })
         ]);
   }
 }

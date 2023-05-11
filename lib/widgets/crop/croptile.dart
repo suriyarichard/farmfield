@@ -1,9 +1,39 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/pallets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
-class CropTile extends StatelessWidget {
-  const CropTile({super.key});
+class CropTile extends StatefulWidget {
+  final String img;
+  final String title;
+  final String subtitle;
+  final Timestamp createdDateAndTime;
+
+  const CropTile(
+      {super.key,
+      required this.img,
+      required this.title,
+      required this.subtitle,
+      required this.createdDateAndTime});
+
+  @override
+  State<CropTile> createState() => _CropTileState();
+}
+
+class _CropTileState extends State<CropTile> {
+  String FormattedDate = "N/A";
+
+  @override
+  void initState() {
+    super.initState();
+    formatDate();
+  }
+
+  void formatDate() {
+    FormattedDate = DateFormat('yyyy-MM-dd hh:mm a')
+        .format(widget.createdDateAndTime.toDate());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +41,8 @@ class CropTile extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
-        // color: Colors.white,
-        color: AppColor.backgroundColor,
+        color: Colors.white,
+        // color: AppColor.backgroundColor,
         elevation: 0,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -31,17 +61,21 @@ class CropTile extends StatelessWidget {
                           SizedBox(
                             width: 40,
                             child: Image.network(
-                                "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"),
+                              widget.img,
+                              // "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
+                            ),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Apple",
+                              Text(widget.title,
+                                  // "Apple",
                                   style: GoogleFonts.robotoMono(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w800)),
-                              Text("Tempature of the soil is high",
+                              Text(widget.subtitle,
+                                  // "Tempature of the soil is high",
                                   style: GoogleFonts.robotoMono(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w500)),
