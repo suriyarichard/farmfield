@@ -1,5 +1,9 @@
+import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/services/crop.services.dart';
+import 'package:farmfield/widgets/auth/login/customButton.dart';
+import 'package:farmfield/widgets/button/smallbutton.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +17,8 @@ class AddCrop extends StatefulWidget {
 
 class _AddCropState extends State<AddCrop> {
   CropService cropService = CropService();
-  TextEditingController titleAnnouncement = TextEditingController();
-  TextEditingController announceDescription = TextEditingController();
+  TextEditingController croptitle = TextEditingController();
+  TextEditingController croptype = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController img = TextEditingController();
   var cropList;
@@ -58,7 +62,7 @@ class _AddCropState extends State<AddCrop> {
                     height: 6,
                   ),
                   TextFormField(
-                    controller: titleAnnouncement,
+                    controller: croptitle,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please Enter Description';
@@ -99,7 +103,7 @@ class _AddCropState extends State<AddCrop> {
                     height: 6,
                   ),
                   TextFormField(
-                    controller: announceDescription,
+                    controller: croptype,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please Enter Description';
@@ -107,21 +111,15 @@ class _AddCropState extends State<AddCrop> {
                       if (value.length < 3) {
                         return 'Please Enter min 3 characters';
                       }
-                      if (value.length > 500) {
+                      if (value.length > 30) {
                         return 'Max 30 characters only Allowed';
                       }
                       return null;
                     },
-                    maxLength: 500,
-                    maxLines: 10,
+                    // maxLength: 30,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-
-                      hintStyle:
-                          const TextStyle(color: Colors.black, fontSize: 14),
-                      hintText:
-                          "Enter your complaint here (max 500 characters)",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide.none,
@@ -130,35 +128,65 @@ class _AddCropState extends State<AddCrop> {
                     ),
                   ),
                   // const SizedBox(height: 45),
-                  TextButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          cropList = {
-                            "crop": titleAnnouncement.text,
-                            "decsription": announceDescription.text,
-                            "createdAt": DateTime.now(),
-                            'img':
-                                'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
-                          };
-                          // await cropsService.add
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        cropList = {
+                          "crop": croptitle.text,
+                          "decsription": croptype.text,
+                          "createdAt": DateTime.now(),
+                          'uid':FirebaseAuth.instance.currentUser?.uid,
+                          'img':
+                              'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
+                        };
+                        // await cropsService.add
 
-                          await cropService.add(context, cropList);
-                          widget.refresh();
-                          showSnackBar(
-                              context, "New Announcement added Successfully ");
-                          Navigator.of(context).pop();
-                        }
-                      },
+                        await cropService.add(context, cropList);
+                        widget.refresh();
+                        showSnackBar(context, "New Crop added Successfully ");
+                        Navigator.of(context).pop();
+                      }
+                    },
+                    child: CustomButton(
                       child: Text(
-                        "Announce Now",
+                        "Add the Crop",
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
-                            fontSize: 18,
+                            fontSize: 14,
                             color: Colors.white),
-                      )),
-                  const SizedBox(
-                    height: 6,
+                      ),
+                    ),
                   ),
+                  // TextButton(
+                  //     onPressed: () async {
+                  //       if (_formKey.currentState!.validate()) {
+                  //         cropList = {
+                  //           "crop": croptitle.text,
+                  //           "decsription": croptype.text,
+                  //           "createdAt": DateTime.now(),
+                  //           'img':
+                  //               'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
+                  //         };
+                  //         // await cropsService.add
+
+                  //         await cropService.add(context, cropList);
+                  //         widget.refresh();
+                  //         showSnackBar(
+                  //             context, "New Announcement added Successfully ");
+                  //         Navigator.of(context).pop();
+                  //       }
+                  //     },
+                  //     child: Text(
+                  //       "Announce Now",
+                  //       style: GoogleFonts.rubik(
+                  //           fontWeight: FontWeight.w600,
+                  //           fontSize: 18,
+                  //           color: Colors.white),
+                  //     )),
+
                   TextButton(
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text(

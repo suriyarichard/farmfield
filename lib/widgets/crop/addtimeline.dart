@@ -1,6 +1,8 @@
 import 'package:farmfield/services/crop.services.dart';
 import 'package:farmfield/services/infoCrop.service.dart';
+import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -125,31 +127,63 @@ class _AddTimelineState extends State<AddTimeline> {
                       // contentPadding: EdgeInsets.symmetric(vertical: 100),
                     ),
                   ),
-                  // const SizedBox(height: 45),
-                  TextButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          croptimeline = {
-                            "eventname": nameevent.text,
-                            "amount": amount.text,
-                            "createdAt": DateTime.now(),
-                          };
-                          // await cropsService.add
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        croptimeline = {
+                          "eventname": nameevent.text,
+                          "amount": amount.text,
+                          'uid': FirebaseAuth.instance.currentUser?.uid,
+                          "createdAt": DateTime.now(),
+                        };
+                        // await cropsService.add
 
-                          await infoCropService.add(context, croptimeline);
-                          widget.refresh();
-                          showSnackBar(
-                              context, "New Announcement added Successfully ");
-                          Navigator.of(context).pop();
-                        }
-                      },
+                        await infoCropService.add(context, croptimeline);
+                        widget.refresh();
+                        showSnackBar(
+                            context, "New Process added Successfully ");
+                        Navigator.of(context).pop();
+                      }
+                    },
+                    child: CustomButton(
                       child: Text(
-                        "Announce Now",
+                        "Add the Crop",
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
-                            fontSize: 18,
+                            fontSize: 14,
                             color: Colors.white),
-                      )),
+                      ),
+                    ),
+                  ),
+                  // const SizedBox(height: 45),
+                  // TextButton(
+                  //     onPressed: () async {
+                  //       if (_formKey.currentState!.validate()) {
+                  //         croptimeline = {
+                  //           "eventname": nameevent.text,
+                  //           "amount": amount.text,
+                  //           "createdAt": DateTime.now(),
+                  //         };
+                  //         // await cropsService.add
+
+                  //         await infoCropService.add(context, croptimeline);
+                  //         widget.refresh();
+                  //         showSnackBar(
+                  //             context, "New Announcement added Successfully ");
+                  //         Navigator.of(context).pop();
+                  //       }
+                  //     },
+                  //     child: Text(
+                  //       "Announce Now",
+                  //       style: GoogleFonts.rubik(
+                  //           fontWeight: FontWeight.w600,
+                  //           fontSize: 18,
+                  //           color: Colors.white),
+                  //     )),
+
                   const SizedBox(
                     height: 6,
                   ),
