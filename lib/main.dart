@@ -1,4 +1,5 @@
 import 'package:farmfield/auth/auth.dart';
+import 'package:farmfield/e-commers/model/cart_model.dart';
 import 'package:farmfield/firebase_options.dart';
 import 'package:farmfield/provider/authProvider.dart';
 import 'package:farmfield/screens/Crop/infoPage.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<AuthProvider>(
           create: (_) => AuthProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => CartModel(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -33,6 +37,8 @@ class MyApp extends StatelessWidget {
         home: AuthCheck(),
         routes: {
           '/histroyPage': (context) => const InfoScreen(),
+          '/return': (context) => const DashBoard(),
+
         },
       ),
     );
