@@ -1,3 +1,4 @@
+import 'package:farmfield/e-commers/pages/home_page.dart';
 import 'package:farmfield/e-commers/pages/intro_screen.dart';
 import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
@@ -20,7 +21,8 @@ class _DashBoardState extends State<DashBoard> {
     CropList(),
     MapScreen(),
     Profile(),
-    IntroScreen(),
+    HomePage(),
+    // IntroScreen(),
     // Weather()
   ];
   void onItemTapped(int index) {

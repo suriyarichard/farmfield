@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/auth/auth.dart';
+import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/services/user.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -17,29 +19,6 @@ class _ProfileState extends State<Profile> {
   List<dynamic> historyData = [];
   final uid = FirebaseAuth.instance.currentUser!.uid;
 
-  // String name = '';
-  // String emails = '';
-  // // String bio = '';
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _getData();
-  //   print("kkd$name");
-  // }
-
-  // Future<void> _getData(String id) async {
-  //   final ref = FirebaseFirestore.instance.collection('users').doc(id);
-  //   final snapshot = await ref.get();
-  //   final data = snapshot.data();
-  //   setState(() {
-  //     name = data!['name'];
-  //     emails = data['email'];
-  //     print("djsjj$name");
-  //     // bio = data['bio'];
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,14 +28,14 @@ class _ProfileState extends State<Profile> {
         title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             ListTile(
               title: Text(
                 'My Account',
-                // style: GoogleFonts.rubik(
-                //     fontWeight: FontWeight.w600,
-                //     fontSize: 25,
-                //     color: AppColor.titleColor),
+                style: GoogleFonts.rubik(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 25,
+                    color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Your profile',
@@ -152,14 +131,14 @@ class _ProfileState extends State<Profile> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  "Email:",
+                                  "Phone:",
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 20,
                                   ),
                                 ),
                                 Text(
-                                  snapshot.data[0]['email'].toString(),
+                                  snapshot.data[0]['phone'].toString(),
                                   // emails,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -169,34 +148,31 @@ class _ProfileState extends State<Profile> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.lightGreen,
-                                ),
-                                onPressed: () {
-                                  // authService.signOut();
-                                  FirebaseAuth.instance.signOut();
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: ((context) => AuthCheck())));
-                                  showSnackBar(context, " Successfully Logout");
-                                },
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
-                                    Text("Logout"),
-                                    Icon(Icons.exit_to_app),
-                                  ],
-                                )),
+                        ]),
+                    SizedBox(
+                      width: 100,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.lightGreen,
                           ),
-                        ])
-                  ]
-                  )
-                  );
+                          onPressed: () {
+                            // authService.signOut();
+                            FirebaseAuth.instance.signOut();
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: ((context) => AuthCheck())));
+                            showSnackBar(context, " Successfully Logout");
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Text("Logout"),
+                              Icon(Icons.exit_to_app),
+                            ],
+                          )),
+                    ),
+                  ]));
             }
           }
         },

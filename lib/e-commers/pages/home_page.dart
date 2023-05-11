@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,37 +19,38 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // leading: IconButton(
-        //     icon: const Icon(Icons.close_rounded, color: Colors.black),
-        //     onPressed: () {
-        //       Navigator.pushNamed(context, '/return');
-        //     }),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        // title: Text(
-        //   '',
-        //   style: TextStyle(
-        //     fontSize: 16,
-        //     color: Colors.grey[700],
-        //   ),
-        // ),
-        // centerTitle: false,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 24.0),
-            child: IconButton(
-                icon: const Icon(
-                  Icons.close_rounded,
-                  color: Colors.red,
-                  size: 40,
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/return');
-                }),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   // leading: IconButton(
+      //   //     icon: const Icon(Icons.close_rounded, color: Colors.black),
+      //   //     onPressed: () {
+      //   //       Navigator.pushNamed(context, '/return');
+      //   //     }),
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   // title: Text(
+      //   //   '',
+      //   //   style: TextStyle(
+      //   //     fontSize: 16,
+      //   //     color: Colors.grey[700],
+      //   //   ),
+      //   // ),
+      //   // centerTitle: false,
+      //   actions: [
+      //     Padding(
+      //       padding: const EdgeInsets.only(right: 24.0),
+      //       child: IconButton(
+      //           icon: const Icon(
+      //             Icons.close_rounded,
+      //             color: Colors.red,
+      //             size: 40,
+      //           ),
+      //           onPressed: () {
+      //             // exit(0);
+      //             Navigator.pushNamed(context, '/return');
+      //           }),
+      //     ),
+      //   ],
+      // ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
         onPressed: () => Navigator.push(
@@ -77,7 +80,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-              "Let's order fresh items for you",
+              "Let's provide you best solution for you",
+              // order fresh items for you",
               style: GoogleFonts.notoSerif(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
