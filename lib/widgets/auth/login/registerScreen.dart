@@ -114,7 +114,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   registerUser = {
                                     "name": namecontroller.text,
                                     "age": agecontroller.text,
-                                    "createdAt": DateTime.now()
+                                    "createdAt": DateTime.now(),
+                                    'crop': []
                                   },
                                   await registerService.add(registerUser),
                                   setState(() {

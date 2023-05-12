@@ -1,6 +1,8 @@
 import 'package:farmfield/services/crop.services.dart';
+import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/services/infoCrop.service.dart';
 import 'package:farmfield/widgets/auth/login/customButton.dart';
+import 'package:farmfield/widgets/crop/copy.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,9 @@ class AddTimeline extends StatefulWidget {
 
 class _AddTimelineState extends State<AddTimeline> {
   InfoCropService infoCropService = InfoCropService();
+  CropServiceF cropServiceF = CropServiceF();
+
+  PhoneService phoneService = PhoneService();
   TextEditingController nameevent = TextEditingController();
   TextEditingController amount = TextEditingController();
 
@@ -132,16 +137,47 @@ class _AddTimelineState extends State<AddTimeline> {
                   ),
                   GestureDetector(
                     onTap: () async {
+                      // if (_formKey.currentState!.validate()) {
+                      //   croptimeline = {
+                      //     "name": nameevent.text,
+                      //     'phone': amount.text,
+                      //   };
+                      //   await phoneService.add(context, croptimeline);
+                      //   widget.refresh();
+                      //   showSnackBar(
+                      //       context, "New Process added Successfully ");
+                      //   Navigator.of(context).pop();
+                      // }
                       if (_formKey.currentState!.validate()) {
                         croptimeline = {
+                          // 'cropname': [
+                          //   {
+                          //     "cropname": 'text',
+                          //     "createdAt": DateTime.now(),
+                          //     'uid': FirebaseAuth.instance.currentUser?.uid,
+                          //     'crop': [{}],
+                          //     'img': '',
+                          //   }
+                          // ],
+                          // 'timeline': [
+                          //   {
+                          //     "eventname": nameevent.text,
+                          //     "amount": amount.text,
+                          //   }
+                          // ],
+
                           "eventname": nameevent.text,
                           "amount": amount.text,
-                          'uid': FirebaseAuth.instance.currentUser?.uid,
-                          "createdAt": DateTime.now(),
+
+                          // "eventname": nameevent.text,
+                          // "amount": amount.text,
+                          // 'uid': FirebaseAuth.instance.currentUser?.uid,
+                          // "createdAt": DateTime.now(),
                         };
                         // await cropsService.add
 
-                        await infoCropService.add(context, croptimeline);
+                        await cropServiceF.addTime(
+                            context, croptimeline, nameevent);
                         widget.refresh();
                         showSnackBar(
                             context, "New Process added Successfully ");

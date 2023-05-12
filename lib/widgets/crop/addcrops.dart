@@ -2,6 +2,7 @@ import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/services/crop.services.dart';
 import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:farmfield/widgets/button/smallbutton.dart';
+import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class AddCrop extends StatefulWidget {
 
 class _AddCropState extends State<AddCrop> {
   CropService cropService = CropService();
+  CropServiceF cropServiceF = CropServiceF();
   TextEditingController croptitle = TextEditingController();
   TextEditingController croptype = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -135,16 +137,34 @@ class _AddCropState extends State<AddCrop> {
                     onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         cropList = {
-                          "crop": croptitle.text,
-                          "decsription": croptype.text,
+                          "cropname": croptitle.text,
                           "createdAt": DateTime.now(),
-                          'uid':FirebaseAuth.instance.currentUser?.uid,
-                          'img':
-                              'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
+                          'uid': FirebaseAuth.instance.currentUser?.uid,
+                          'timeline': [],
+                          'img': '',
+
+                          // "eventname": nameevent.text,
+                          // "amount": amount.text,
+                          // 'uid': FirebaseAuth.instance.currentUser?.uid,
+                          // "createdAt": DateTime.now(),
                         };
+                        // cropList = {
+
+                        //   'Cropname': [
+                        //     {
+                        //       "crop": croptitle.text,
+                        //       "decsription": croptype.text,
+                        //       "createdAt": DateTime.now(),
+                        //       'uid': FirebaseAuth.instance.currentUser?.uid,
+                        //       'crop': [{}],
+                        //       'img':
+                        //           'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
+                        //     }
+                        //   ],
+                        // };
                         // await cropsService.add
 
-                        await cropService.add(context, cropList);
+                        await cropServiceF.add(context, cropList);
                         widget.refresh();
                         showSnackBar(context, "New Crop added Successfully ");
                         Navigator.of(context).pop();

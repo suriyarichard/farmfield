@@ -45,4 +45,19 @@ class CropService {
   //   announcement["villageId"] = villageId;
   //   await announcementCol.add(announcement);
   // }
+
+   Future<dynamic> dadd(context, phoneNumber) async {
+    DocumentSnapshot phoneSnapshot = await cropData.doc(uid).get();
+
+    if (phoneSnapshot.data() != null) {
+      Map<String, dynamic> data = phoneSnapshot.data() as Map<String, dynamic>;
+      List<dynamic> phoneNumbers = data["data"] as List<dynamic>;
+
+      phoneNumbers.add(phoneNumber);
+      cropData
+          .doc(uid)
+          .update(data)
+          .then((DocumentSnapshot) => print("Phone Number Added"));
+    }
+  }
 }

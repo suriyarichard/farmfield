@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class InfoCropService {
   var uid = FirebaseAuth.instance.currentUser?.uid;
-  final cropDatalist = FirebaseFirestore.instance.collection("timeline");
+  final cropDatalist = FirebaseFirestore.instance.collection("cropss");
 
   Future<dynamic> get() async {
     List<Map> cropList = [];
@@ -22,7 +22,7 @@ class InfoCropService {
     return cropList;
   }
 
-  Future add(context, details) {
+  Future adds(context, details) {
     // final userProvider = Provider.of<UserProvider>(context, listen: false);
     // final uid = FirebaseAuth.instance.currentUser?.uid;
 
@@ -36,5 +36,29 @@ class InfoCropService {
         .add(details)
         .then((res) => {print("Successfully added")})
         .catchError((onError) => {print("Error ")});
+  }
+
+  Future<dynamic> adddd(context, register) async {
+    register["uid"] = FirebaseAuth.instance.currentUser?.uid;
+    register["phone"] = FirebaseAuth.instance.currentUser?.phoneNumber;
+
+    await cropDatalist
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .set(register);
+  }
+
+  Future<dynamic> add(context, phoneNumber) async {
+    DocumentSnapshot phoneSnapshot = await cropDatalist.doc(uid).get();
+
+    if (phoneSnapshot.data() != null) {
+      Map<String, dynamic> data = phoneSnapshot.data() as Map<String, dynamic>;
+      List<dynamic> phoneNumbers = data["crop"] as List<dynamic>;
+
+      phoneNumbers.add(phoneNumber);
+      cropDatalist
+          .doc(uid)
+          .update(data)
+          .then((DocumentSnapshot) => print("Phone Number Added"));
+    }
   }
 }

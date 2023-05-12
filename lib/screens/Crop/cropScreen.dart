@@ -5,6 +5,7 @@ import 'package:farmfield/services/crop.services.dart';
 import 'package:farmfield/widgets/button/smallbutton.dart';
 import 'package:farmfield/widgets/crop/addcrops.dart';
 import 'package:farmfield/widgets/crop/croptile.dart';
+import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class CropList extends StatefulWidget {
 
 class _CropListState extends State<CropList> {
   CropService cropService = CropService();
+  CropServiceF cropServiceF = CropServiceF();
   List croplist = [];
 
   @override
@@ -87,8 +89,7 @@ class _CropListState extends State<CropList> {
                             elevation: 20,
                             context: context,
                             builder: (context) {
-                              return AddCrop(
-                                  refresh: () => setState(() {}));
+                              return AddCrop(refresh: () => setState(() {}));
                             });
                       },
                       child: SmallButton(
@@ -127,7 +128,7 @@ class _CropListState extends State<CropList> {
                 // const SenorCard(),
 
                 FutureBuilder(
-                  future: cropService.get(),
+                  future: cropServiceF.get(),
                   builder:
                       (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -143,6 +144,7 @@ class _CropListState extends State<CropList> {
                         return Text("data");
                         // return NoData(text: 'No CropList Available');
                       } else {
+                        // return Text(snapshot.data[0]['cropname'].toString());
                         return SizedBox(
                           height: MediaQuery.of(context).size.height * 0.75,
                           width: 325,
@@ -156,8 +158,10 @@ class _CropListState extends State<CropList> {
                                 // complaintTitle: snapshot.data[index]
                                 // ['description'],
                                 img: snapshot.data[index]['img'].toString(),
-                                subtitle: snapshot.data[index]['decsription'],
-                                title: snapshot.data[index]['crop'],
+                                subtitle:
+                                    snapshot.data[index]['cropname'].toString(),
+                                title:
+                                    snapshot.data[index]['cropname'].toString(),
                               );
                             },
                           ),

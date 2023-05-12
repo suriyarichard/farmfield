@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/pallets/color.dart';
+import 'package:farmfield/services/crop.dart';
+import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/services/infoCrop.service.dart';
 import 'package:farmfield/widgets/button/smallbutton.dart';
 import 'package:farmfield/widgets/crop/addtimeline.dart';
@@ -15,7 +17,9 @@ class Timeline extends StatefulWidget {
 }
 
 class _TimelineState extends State<Timeline> {
-  InfoCropService infoCropService = InfoCropService();
+  // InfoCropService infoCropService = InfoCropService();
+  // CropServices cropServices = CropServices();
+  CropServiceF cropServiceF = CropServiceF();
   var timelinehistroy;
 
   @override
@@ -72,7 +76,7 @@ class _TimelineState extends State<Timeline> {
           //   ),
           // ),
           FutureBuilder(
-              future: infoCropService.get(),
+              future: cropServiceF.getTime(),
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   // Display a loading spinner while waiting for data
@@ -90,23 +94,26 @@ class _TimelineState extends State<Timeline> {
                   } else {
                     // Call the function from the instance of MyClass and display the fetched data
 
-                    // return Text(snapshot.data[0]['totalweight'].toString());
-                    // return Text(snapshot.data[0]['name'].toString());
-                    return SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.75,
-                      width: 325,
-                      child: ListView.builder(
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return TimeLineCard(
-                            createdDateAndTime:
-                                snapshot.data[index]['createdAt'] as Timestamp,
-                            eventName: snapshot.data[index]['eventname'],
-                            amount: snapshot.data[index]['amount'],
-                          );
-                        },
-                      ),
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(snapshot.data.toString()),
                     );
+
+                    // return SizedBox(
+                    //   height: MediaQuery.of(context).size.height * 0.75,
+                    //   width: 325,
+                    //   child: ListView.builder(
+                    //     itemCount: snapshot.data.length,
+                    //     itemBuilder: (BuildContext context, int index) {
+                    //       return TimeLineCard(
+                    //         // createdDateAndTime:
+                    //         // snapshot.data[index]['createdAt'] as Timestamp,
+                    //         eventName: snapshot.data.toString(),
+                    //         amount: snapshot.data.toString(),
+                    //       );
+                    //     },
+                    //   ),
+                    // );
                   }
                 }
               })

@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class TimeLineCard extends StatefulWidget {
-  final Timestamp createdDateAndTime;
+  // final Timestamp createdDateAndTime;
   final String eventName;
   final String amount;
   const TimeLineCard({
     super.key,
-    required this.createdDateAndTime,
+    // required this.createdDateAndTime,
     required this.eventName,
     required this.amount,
   });
@@ -20,16 +20,16 @@ class TimeLineCard extends StatefulWidget {
 
 class _TimeLineCardState extends State<TimeLineCard> {
   String FormattedDate = "N/A";
-  @override
-  void initState() {
-    super.initState();
-    formatDate();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   formatDate();
+  // }
 
-  void formatDate() {
-    FormattedDate = DateFormat('yyyy-MM-dd hh:mm a')
-        .format(widget.createdDateAndTime.toDate());
-  }
+  // void formatDate() {
+  //   FormattedDate = DateFormat('yyyy-MM-dd hh:mm a')
+  //       .format(widget.createdDateAndTime.toDate());
+  // }
 
   @override
   Widget build(BuildContext context) {
