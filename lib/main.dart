@@ -2,7 +2,7 @@ import 'package:farmfield/screens/Crop/infoPage.dart';
 import 'package:farmfield/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-
+import './screens/crop_predictor/result.dart';
 
 
 
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       home: DashBoard(),
       routes: {
         '/histroyPage': (context) => const InfoScreen(),
+        '/crop_pred_res': (context) => CropRecResult()
       },
     );
   }

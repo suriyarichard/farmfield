@@ -12,7 +12,7 @@ class Weather extends StatefulWidget {
 }
 
 class _WeatherState extends State<Weather> {
-  TextEditingController cityNameController = TextEditingController();
+  // TextEditingController cityNameController = TextEditingController();
   bool isLocationEnabled = false;
   Future<LocationPermission> permission =
       Geolocator.checkPermission() as Future<LocationPermission>;
