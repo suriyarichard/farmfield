@@ -4,6 +4,7 @@ import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/profile/profile.dart';
+import 'package:farmfield/screens/trade/tradeScreen.dart';
 import 'package:flutter/material.dart';
 import '../weatherapp/weatherapp.dart';
 
@@ -19,7 +20,8 @@ class _DashBoardState extends State<DashBoard> {
   List<Widget> pages = [
     HomeScreen(),
     CropList(),
-    MapScreen(),
+    PropertyFieldMap(),
+    TradeScreen(),
     Profile(),
     HomePage(),
     // IntroScreen(),
@@ -75,6 +77,13 @@ class _DashBoardState extends State<DashBoard> {
                   size: 25,
                 ),
                 label: 'Field view',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.speaker_notes_outlined,
+                  size: 25,
+                ),
+                label: 'Trade',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
