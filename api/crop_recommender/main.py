@@ -1,3 +1,4 @@
+from flask import jsonify
 import numpy as np
 from fastapi import FastAPI , Request
 from pydantic import BaseModel 
@@ -6,6 +7,7 @@ from fastapi.responses import JSONResponse
 from tensorflow import keras
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder 
+
 
 
 app = FastAPI()
@@ -63,7 +65,7 @@ def predict(data1: ListItems):
     ])
     predRes = prediction(predict_arr)
     print(predRes)
-    return {'prediction': predRes}
+    return jsonify({'prediction': predRes})
 
 @app.exception_handler(ValueError)
 async def value_error_exception_handler(request: Request, exc: ValueError):

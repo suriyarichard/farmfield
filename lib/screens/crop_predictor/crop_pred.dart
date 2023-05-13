@@ -1,4 +1,5 @@
 import 'package:farmfield/screens/crop_predictor/result.dart';
+import 'package:farmfield/screens/disease_predictor/disease_pred.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
@@ -27,12 +28,9 @@ class _CropRecState extends State<CropRec> {
   bool setLoading = false;
 
   void getParams(double lat, double lon) async {
-    // var cityName = cityNameController.text;
-
     var url =
         "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=b4b035e79b44eeefd57ea1289ae67f35";
-    // var url =
-    //     "https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=b4b035e79b44eeefd57ea1289ae67f35";
+
     var response = http
         .get(Uri.parse(url))
         .then((resp) => {
@@ -81,12 +79,12 @@ class _CropRecState extends State<CropRec> {
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Enter the details given below',
+                      'Check your best recommended crop!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 23,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          letterSpacing: 2),
+                          letterSpacing: 1),
                     )),
                 Container(
                   padding: const EdgeInsets.all(10),
@@ -238,13 +236,16 @@ class _CropRecState extends State<CropRec> {
                         'ph': ph.text,
                         'rainfall': rainfall.text,
                       };
-                      Navigator.of(context).pushNamed(
-                        CropRecResult.routeName,
-                        arguments: data
-                      );
+                      Navigator.of(context)
+                          .pushNamed(CropRecResult.routeName, arguments: data);
                     },
                   ),
-                )
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(DiseasePred.routeName);
+                    },
+                    child: const Text('Predict Crop Disease'))
               ],
             ),
     );

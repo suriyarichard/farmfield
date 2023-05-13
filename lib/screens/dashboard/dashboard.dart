@@ -1,10 +1,11 @@
 import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
-import 'package:farmfield/screens/crop_predictor/crop_pred.dart';
+import 'package:farmfield/screens/disease_predictor/disease_pred.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/expense/homepage.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
+import '../crop_predictor/crop_pred.dart';
 import '../weatherapp/weatherapp.dart';
 
 class DashBoard extends StatefulWidget {
@@ -17,11 +18,13 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   int currentPage = 0;
   List<Widget> pages = [
-    HomeScreen(),
+    // HomeScreen(),
+    CropRec(),
+    // DiseasePred(),
     CropList(),
     MapScreen(),
     Profile(),
-    CropRec()
+    Weather()
     // HomePage(),
   ];
   void onItemTapped(int index) {

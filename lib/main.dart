@@ -3,11 +3,16 @@ import 'package:farmfield/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import './screens/crop_predictor/result.dart';
+import 'package:camera/camera.dart';
+import './screens/disease_predictor/disease_pred.dart';
 
 
+List<CameraDescription>? cameras;
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(const MyApp());
 }
 
@@ -23,7 +28,8 @@ class MyApp extends StatelessWidget {
       home: DashBoard(),
       routes: {
         '/histroyPage': (context) => const InfoScreen(),
-        '/crop_pred_res': (context) => CropRecResult()
+        '/crop_pred_res': (context) => CropRecResult(),
+        DiseasePred.routeName : (context) => DiseasePred()
       },
     );
   }
