@@ -2,10 +2,12 @@ import 'package:farmfield/e-commers/pages/home_page.dart';
 import 'package:farmfield/e-commers/pages/intro_screen.dart';
 import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
+import 'package:farmfield/screens/disease_predictor/disease_pred.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
 import 'package:flutter/material.dart';
+import '../crop_predictor/crop_pred.dart';
 import '../weatherapp/weatherapp.dart';
 
 class DashBoard extends StatefulWidget {
@@ -18,7 +20,9 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   int currentPage = 0;
   List<Widget> pages = [
-    HomeScreen(),
+    // HomeScreen(),
+    CropRec(),
+    // DiseasePred(),
     CropList(),
     PropertyFieldMap(),
     TradeScreen(),
@@ -42,6 +46,7 @@ class _DashBoardState extends State<DashBoard> {
           child: pages.elementAt(selectedIndex),
         ),
         bottomNavigationBar: Container(
+          height: 70,
           clipBehavior:
               Clip.hardEdge, //or better look(and cost) using Clip.antiAlias,
           decoration: const BoxDecoration(
@@ -90,7 +95,7 @@ class _DashBoardState extends State<DashBoard> {
                   Icons.account_circle,
                   size: 25,
                 ),
-                label: 'profile',
+                label: 'Profile',
               ),
               BottomNavigationBarItem(
                   icon: Icon(

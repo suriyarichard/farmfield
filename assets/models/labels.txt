@@ -1,0 +1,37 @@
+0 Peach_healthy
+1 Peach_Bacterial_spot
+2 Strawberry_healthy
+3 Strawberry_Leaf_scorch
+4 Potato_healthy
+5 Potato_Late_blight
+6 Cherry_(including_sour)___Powdery_mildew
+7 Cherry_(including_sour)___healthy
+8 Pepper,_bell_healthy
+9 Pepper,_bell__Bacterial_spot
+10 Apple__Apple_scab
+11 Apple__Black_rot
+12 Apple_Cedar_apple_rust
+13 Apple_healthy
+14 Blueberry_healthy
+15 Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot
+16 Corn_(maize)___Common_rust_
+17 Corn_(maize)___healthy
+18 Corn_(maize)_Northern_Leaf_Blight
+19 Grape__Black_rot
+20 Grape__Esca_(Black_Measles)
+21 Grape_healthy
+22 Grape_Leaf_blight_(Isariopsis_Leaf_Spot)
+23 Orange_Haunglongbing_(Citrus_greening)
+24 Potato_Early_blight
+25 Raspberry_healthy
+26 Soybean_healthy
+27 Tomato_Bacterial_spot
+28 Tomato_Early_blight
+29 Tomato_healthy
+30 Tomato_Late_blight
+31 Tomato_Leaf_Mold
+32 Tomato_Septoria_leaf_spot
+33 Tomato_Spider_mites Two-spotted_spider_mite
+34 Tomato_Target_Spot
+35 Tomato_Tomato_mosaic_virus
+36 Tomato_Tomato_Yellow_Leaf_Curl_Virus
