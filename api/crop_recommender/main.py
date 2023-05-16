@@ -7,6 +7,10 @@ from fastapi.responses import JSONResponse
 from tensorflow import keras
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder 
+import tensorflow as tf
+
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 
 
@@ -20,6 +24,9 @@ data['label'] = le.transform(data.label)
 
 label_mapping = dict(zip(le.classes_, le.transform(le.classes_)))
 model = keras.models.load_model('Crop_Model.h5')
+
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 def get_crop_name(val):
@@ -76,3 +83,5 @@ async def value_error_exception_handler(request: Request, exc: ValueError):
 
 if __name__ == "__main__":
     uvicorn.run(app)
+
+
