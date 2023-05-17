@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InfoScreen extends StatefulWidget {
-  const InfoScreen({super.key});
+  // const InfoScreen({super.key});
+  final String id;
 
+  const InfoScreen({
+    super.key,
+    required this.id,
+  });
   @override
   State<InfoScreen> createState() => _InfoScreenState();
 }
@@ -77,7 +82,8 @@ class _InfoScreenState extends State<InfoScreen> {
                   height: 20,
                 ),
                 // const SenorCard(),
-                const Timeline(),
+                // Text(id)
+                 Timeline(id: widget.id),
 
                 // FutureBuilder(
                 //   future: complaintService.get(context),

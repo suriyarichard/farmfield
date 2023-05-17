@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         title: 'FarmField',
         home: AuthCheck(),
         routes: {
-          '/histroyPage': (context) => const InfoScreen(),
+          // '/histroyPage': (context) => const InfoScreen(),
           '/return': (context) => const DashBoard(),
 
         },
