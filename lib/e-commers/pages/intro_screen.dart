@@ -54,7 +54,7 @@ class IntroScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return HomePage();
+                    return Ecommer();
                   },
                 ),
               ),

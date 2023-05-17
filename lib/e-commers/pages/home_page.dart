@@ -8,14 +8,14 @@ import '../components/grocery_item_tile.dart';
 import '../model/cart_model.dart';
 import 'cart_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Ecommer extends StatefulWidget {
+  const Ecommer({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Ecommer> createState() => _EcommerState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _EcommerState extends State<Ecommer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

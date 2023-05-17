@@ -22,10 +22,11 @@ class _DashBoardState extends State<DashBoard> {
     // HomeScreen(),
     MainScreen(),
     CropList(),
-    PropertyFieldMap(),
+    // PropertyFieldMap(),
     TradeScreen(),
-    HomePage(),
+    // HomePage(),
     Profile(),
+    // Weather(),
     // IntroScreen(),
     // Weather()
   ];
@@ -73,13 +74,13 @@ class _DashBoardState extends State<DashBoard> {
                 ),
                 label: 'Crop',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.location_pin,
-                  size: 25,
-                ),
-                label: 'Field view',
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(
+              //     Icons.location_pin,
+              //     size: 25,
+              //   ),
+              //   label: 'Field view',
+              // ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.speaker_notes_outlined,
@@ -87,12 +88,12 @@ class _DashBoardState extends State<DashBoard> {
                 ),
                 label: 'Trade',
               ),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.shop,
-                    size: 25,
-                  ),
-                  label: 'Store'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(
+              //       Icons.shop,
+              //       size: 25,
+              //     ),
+              //     label: 'Store'),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.account_circle,
@@ -100,6 +101,13 @@ class _DashBoardState extends State<DashBoard> {
                 ),
                 label: 'profile',
               ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(
+              //     Icons.account_circle,
+              //     size: 25,
+              //   ),
+              //   label: 'weather',
+              // ),
             ],
             currentIndex: selectedIndex,
             // fixedColor: Colors.deepPurple,
