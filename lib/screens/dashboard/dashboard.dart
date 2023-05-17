@@ -2,6 +2,7 @@ import 'package:farmfield/e-commers/pages/home_page.dart';
 import 'package:farmfield/e-commers/pages/intro_screen.dart';
 import 'package:farmfield/screens/Crop/cropscreen.dart';
 import 'package:farmfield/screens/HomeScreen/homeScreen.dart';
+import 'package:farmfield/screens/HomeScreen/mainScreen.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
@@ -18,7 +19,8 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   int currentPage = 0;
   List<Widget> pages = [
-    HomeScreen(),
+    // HomeScreen(),
+    MainScreen(),
     CropList(),
     PropertyFieldMap(),
     TradeScreen(),
