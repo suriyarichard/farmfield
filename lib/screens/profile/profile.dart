@@ -6,6 +6,7 @@ import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -83,9 +84,8 @@ class _ProfileState extends State<Profile> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // Lottie.network(
-                          //     "https://assets8.lottiefiles.com/packages/lf20_xyadoh9h.json"),
-
+                          Lottie.network(
+                              "https://assets4.lottiefiles.com/packages/lf20_sgn7zslb.json"),
                           // const Padding(
                           //   padding: EdgeInsets.only(top: 10.0),
                           //   child:

@@ -16,7 +16,9 @@ class AddTrade extends StatefulWidget {
 class _AddTradeState extends State<AddTrade> {
   TradeService tradeService = TradeService();
   TextEditingController productstitle = TextEditingController();
-  TextEditingController deatils = TextEditingController();
+  TextEditingController price = TextEditingController();
+
+  TextEditingController kg = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var announcementList;
@@ -63,7 +65,7 @@ class _AddTradeState extends State<AddTrade> {
                     controller: productstitle,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Description';
+                        return 'Please Enter product name';
                       }
                       if (value.length < 3) {
                         return 'Please Enter min 3 characters';
@@ -95,41 +97,80 @@ class _AddTradeState extends State<AddTrade> {
                   Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        "Description",
+                        "Kg",
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
                       )),
                   TextFormField(
-                    controller: deatils,
+                    controller: kg,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Description';
+                        return 'Please Enter weight';
                       }
-                      if (value.length < 3) {
-                        return 'Please Enter min 3 characters';
-                      }
-                      if (value.length > 500) {
-                        return 'Max 30 characters only Allowed';
+                      if (value.length > 10) {
+                        return 'Max 10 characters only Allowed';
                       }
                       return null;
                     },
                     // maxLength: 500,
                     // maxLines: 10,
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
 
                       hintStyle:
                           const TextStyle(color: Colors.black, fontSize: 14),
-                      hintText: "Describe your Product here ",
+                      hintText: "Kg",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide.none,
                       ),
                       // contentPadding: EdgeInsets.symmetric(vertical: 100),
                     ),
+                  ),
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Price",
+                        style: GoogleFonts.rubik(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Colors.black),
+                      )),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  TextFormField(
+                    controller: price,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter Price';
+                      }
+                      if (value.length > 10) {
+                        return 'Max 10 characters only Allowed';
+                      }
+                      return null;
+                    },
+                    // maxLength: 30,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintStyle:
+                          const TextStyle(color: Colors.black, fontSize: 14),
+                      hintText: "Enter your Price",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none,
+                      ),
+                      // contentPadding: EdgeInsets.symmetric(vertical: 100),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Align(
                       alignment: Alignment.topLeft,
@@ -149,15 +190,16 @@ class _AddTradeState extends State<AddTrade> {
                       if (value == null || value.isEmpty) {
                         return 'Please Enter Phone Number';
                       }
-                      if (value.length < 3) {
-                        return 'Please Enter min 3 characters';
+                      if (value.length < 10) {
+                        return 'Please Enter  10 characters';
                       }
-                      if (value.length > 30) {
-                        return 'Max 30 characters only Allowed';
+                      if (value.length > 10) {
+                        return 'Max 10 number only Allowed';
                       }
                       return null;
                     },
                     // maxLength: 30,
+                    keyboardType: TextInputType.number,
 
                     decoration: InputDecoration(
                       hintStyle:
@@ -182,8 +224,9 @@ class _AddTradeState extends State<AddTrade> {
                         {
                           announcementList = {
                             "product": productstitle.text,
-                            "deatils": deatils.text,
+                            "kg": kg.text,
                             'phone': phoneNumber.text,
+                            'price': price.text,
                             "createdAt": DateTime.now()
                           },
                           await tradeService.add(context, announcementList),

@@ -22,8 +22,8 @@ class _DashBoardState extends State<DashBoard> {
     CropList(),
     PropertyFieldMap(),
     TradeScreen(),
-    Profile(),
     HomePage(),
+    Profile(),
     // IntroScreen(),
     // Weather()
   ];
@@ -69,7 +69,7 @@ class _DashBoardState extends State<DashBoard> {
                   Icons.campaign,
                   size: 25,
                 ),
-                label: 'Market',
+                label: 'Crop',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -86,18 +86,18 @@ class _DashBoardState extends State<DashBoard> {
                 label: 'Trade',
               ),
               BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.shop,
+                    size: 25,
+                  ),
+                  label: 'Store'),
+              BottomNavigationBarItem(
                 icon: Icon(
                   Icons.account_circle,
                   size: 25,
                 ),
                 label: 'profile',
               ),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.cloud,
-                    size: 25,
-                  ),
-                  label: 'Weather'),
             ],
             currentIndex: selectedIndex,
             // fixedColor: Colors.deepPurple,

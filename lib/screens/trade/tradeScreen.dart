@@ -124,8 +124,10 @@ class _TradeScreenState extends State<TradeScreen> {
                                 phoneNumber: snapshot.data[index]['phone'],
                                 createdDateAndTime: snapshot.data[index]
                                     ['createdAt'] as Timestamp,
-                                deatils: snapshot.data[index]['deatils'],
+                                // deatils: snapshot.data[index]['deatils'],
                                 tradeTitle: snapshot.data[index]['product'],
+                                kg: snapshot.data[index]['kg'],
+                                price: snapshot.data[index]['price'],
                               );
                             },
                           ),
