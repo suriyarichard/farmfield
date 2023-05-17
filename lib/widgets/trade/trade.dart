@@ -104,7 +104,7 @@ class _TradeCardState extends State<TradeCard> {
                                   // Call the function from the instance of MyClass and display the fetched data
                                   if (name.length == 0) {
                                     return Text("-");
-                                    // return NoData(text: 'No Profile Available', img: 'https://assets3.lottiefiles.com/packages/lf20_2K2lEIcWwq.json',);
+                                    // return NoData(text: 'No Profile Available',);
                                   } else {
                                     return SizedBox(
                                       width: 55,

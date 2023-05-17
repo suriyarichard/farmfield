@@ -15,6 +15,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  List navigateOptions = [
+    "Overview",
+    "Corn",
+    "Maize",
+    "Community",
+    "Profile",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +43,36 @@ class _MainScreenState extends State<MainScreen> {
               ),
               const Icon(Icons.notifications_none_outlined)
             ],
+          ),
+        ),
+        Container(
+          height: 70,
+          margin: const EdgeInsets.all(18),
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: navigateOptions.length,
+            itemBuilder: (context, index) {
+              return Container(
+                padding: const EdgeInsets.all(10),
+                width: 140,
+                child: TextButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                              side: BorderSide(color: Colors.black)))),
+                  child: Text(
+                    "${navigateOptions[index]}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
         Lottie.network(
