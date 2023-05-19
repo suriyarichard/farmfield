@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import 'screens/crop_predictor/crop_pred.dart';
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('A bg message just showed up :  ${message.messageId}');
@@ -63,6 +65,7 @@ class MyApp extends StatelessWidget {
           '/trade': (context) => TradeScreen(),
           '/store': (context) => Ecommer(),
           '/map': (context) => PropertyFieldMap(),
+          '/reco': (context) => CropRec(),
         },
       ),
     );

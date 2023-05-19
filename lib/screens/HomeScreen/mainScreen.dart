@@ -1,4 +1,5 @@
 import 'package:farmfield/pallets/color.dart';
+import 'package:farmfield/widgets/cropview/cropview.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:farmfield/widgets/home/customicon.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,17 @@ class _MainScreenState extends State<MainScreen> {
                           padding: const EdgeInsets.all(10),
                           width: 140,
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return CropView(
+                                  id: snapshot.data[index]['cropname']
+                                      .toString(),
+                                  title: snapshot.data[index]['cropname']
+                                      .toString(),
+                                );
+                              }));
+                            },
                             style: ButtonStyle(
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
@@ -144,6 +155,9 @@ class _MainScreenState extends State<MainScreen> {
           WeatherCard(),
           // const Center(child: WeatherCard()),
           // SenorCard(),
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Row(
@@ -182,7 +196,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   text: 'Recommender',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/reco');
                   },
                   background: AppColor.circleColor,
                 ),
@@ -200,6 +214,9 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 50,
           ),
         ]),
       ),
