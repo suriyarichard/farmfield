@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/pallets/color.dart';
+import 'package:farmfield/screens/Crop/infoPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -61,8 +62,11 @@ class _CropTileState extends State<CropTile> {
                           SizedBox(
                             width: 40,
                             child: Image.network(
-                              widget.img,
-                              // "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
+                              //Now img will load staticly change afterwards
+                              "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
+
+                              //code to load img dynamically
+                              // widget.img,
                             ),
                           ),
                           Column(
@@ -85,7 +89,11 @@ class _CropTileState extends State<CropTile> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/histroyPage');
+                           Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return InfoScreen(
+                                id: widget.title,);
+                          }));
                         },
                         child: Row(
                           children: const [

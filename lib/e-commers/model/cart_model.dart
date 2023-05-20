@@ -4,15 +4,15 @@ class CartModel extends ChangeNotifier {
   // list of items on sale
   final List _shopItems = const [
     // [ itemName, itemPrice, imagePath, color ]
-    ["Avocado", "4.00", 'assets/avocado.png', Colors.green],
-    ["Banana", "2.50", "assets/banana.png", Colors.yellow],
-    ["Chicken", "12.80", "assets/chicken.png", Colors.brown],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
-    ["Water", "1.00", "assets/water.png", Colors.blue],
+    ["JD Fresh", "2.50", "assets/p-1.jpg", Colors.yellow],
+    ["Herbicide", "12.80", "assets/p-3.jpg", Colors.brown],
+    ["Sumari", "1.00", "assets/p-4.jpg", Colors.blue],
+    ["Fungi", "1.00", "assets/p-5.jpg", Colors.green],
+    ["Super Pest Guard", "1.00", "assets/p-6.jpg", Colors.blue],
+    ["Pest Fix", "1.00", "assets/p-7.jpg", Colors.blue],
+    ["Dr.Earth", "1.00", "assets/p-8.jpg", Colors.blue],
+    ["Plant Protector", "1.00", "assets/p-9.jpg", Colors.blue],
+    ["Bloom Buddy", "1000.00", "assets/p-10.jpg", Colors.blue],
   ];
 
   // list of cart items
