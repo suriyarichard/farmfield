@@ -141,7 +141,7 @@ class _AddCropState extends State<AddCrop> {
                           "createdAt": DateTime.now(),
                           'uid': FirebaseAuth.instance.currentUser?.uid,
                           'timeline': [],
-                          'img': '',
+                          'img': 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
 
                           // "eventname": nameevent.text,
                           // "amount": amount.text,

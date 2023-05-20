@@ -19,6 +19,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController agecontroller = TextEditingController();
+  TextEditingController statecontroller = TextEditingController();
+  TextEditingController districtcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +90,105 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   borderSide: BorderSide.none,
                                 )),
                           ),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Enter your Age",
+                              style: GoogleFonts.rubik(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            controller: agecontroller,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter age as  number';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                constraints: const BoxConstraints(
+                                  maxHeight: 50,
+                                  maxWidth: 327,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: BorderSide.none,
+                                )),
+                          ),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Enter Your State",
+                              style: GoogleFonts.rubik(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            controller: statecontroller,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter State ';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                constraints: const BoxConstraints(
+                                  maxHeight: 50,
+                                  maxWidth: 327,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: BorderSide.none,
+                                )),
+                          ),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Enter your District Name",
+                              style: GoogleFonts.rubik(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Colors.black),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            controller: districtcontroller,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                constraints: const BoxConstraints(
+                                  maxHeight: 50,
+                                  maxWidth: 327,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(9),
+                                  borderSide: BorderSide.none,
+                                )),
+                          ),
 
                           Align(
                             alignment: Alignment.topLeft,
@@ -114,6 +215,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   registerUser = {
                                     "name": namecontroller.text,
                                     "age": agecontroller.text,
+                                    "state": statecontroller.text,
+                                    "district": districtcontroller.text,
                                     "createdAt": DateTime.now(),
                                     'crop': []
                                   },

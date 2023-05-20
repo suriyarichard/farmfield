@@ -1,11 +1,14 @@
 import 'package:farmfield/pallets/color.dart';
+import 'package:farmfield/widgets/charts/crop_chart.dart';
 import 'package:farmfield/widgets/cropview/cropview.dart';
+import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:farmfield/widgets/home/customicon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:farmfield/services/final.service.dart';
+import 'package:farmfield/widgets/charts/pie.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -184,7 +187,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   text: 'Suggest',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/suggestion');
+                    Navigator.pushNamed(context, '/');
                   },
                   background: AppColor.circleColor,
                 ),
@@ -215,6 +218,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           ),
+          // Home(),
           const SizedBox(
             height: 50,
           ),
