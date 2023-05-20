@@ -77,6 +77,7 @@ class _CropViewState extends State<CropView> {
           WeatherCard(),
 
           SenorCard(),
+          
         ]),
       ),
     );

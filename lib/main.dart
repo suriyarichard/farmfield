@@ -6,7 +6,9 @@ import 'package:farmfield/provider/authProvider.dart';
 import 'package:farmfield/screens/Crop/infoPage.dart';
 import 'package:farmfield/screens/dashboard/dashboard.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
+import 'package:farmfield/screens/splashscreen/splashscreen.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
+import 'package:farmfield/widgets/charts/pie.dart';
 import 'package:farmfield/widgets/trade/trade.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +60,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FarmField',
-        home: AuthCheck(),
+        // home: AuthCheck(),
+        home: SplashScreen(),
         routes: {
           // '/histroyPage': (context) => const InfoScreen(),
           '/return': (context) => const DashBoard(),
@@ -66,6 +69,7 @@ class MyApp extends StatelessWidget {
           '/store': (context) => Ecommer(),
           '/map': (context) => PropertyFieldMap(),
           '/reco': (context) => CropRec(),
+          '/chart': (context) => Home(),
         },
       ),
     );
