@@ -1,15 +1,13 @@
-import 'package:farmfield/auth/auth.dart';
 import 'package:farmfield/e-commers/model/cart_model.dart';
 import 'package:farmfield/e-commers/pages/home_page.dart';
 import 'package:farmfield/firebase_options.dart';
 import 'package:farmfield/provider/authProvider.dart';
-import 'package:farmfield/screens/Crop/infoPage.dart';
+
 import 'package:farmfield/screens/dashboard/dashboard.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/splashscreen/splashscreen.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
-import 'package:farmfield/widgets/charts/pie.dart';
-import 'package:farmfield/widgets/trade/trade.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -69,7 +67,6 @@ class MyApp extends StatelessWidget {
           '/store': (context) => Ecommer(),
           '/map': (context) => PropertyFieldMap(),
           '/reco': (context) => CropRec(),
-          '/chart': (context) => Home(),
         },
       ),
     );

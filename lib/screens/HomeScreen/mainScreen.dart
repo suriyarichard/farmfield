@@ -218,7 +218,6 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           ),
-          CropCard(),
           // Home(),
           const SizedBox(
             height: 50,
