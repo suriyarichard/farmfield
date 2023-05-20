@@ -161,7 +161,7 @@ class _TimelineState extends State<Timeline> {
                                     color: const Color.fromARGB(255, 27, 29, 26)),
                               ),
                               Text(
-                                totalAmt.toString(),
+                                'Rs: ${totalAmt.toString()}',
                                 style: GoogleFonts.rubik(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,
