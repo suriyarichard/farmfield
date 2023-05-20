@@ -4,6 +4,9 @@ import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:farmfield/widgets/home/customicon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:geolocator/geolocator.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class CropView extends StatefulWidget {
   final String id;
@@ -16,6 +19,56 @@ class CropView extends StatefulWidget {
 }
 
 class _CropViewState extends State<CropView> {
+
+  var responseRes;
+
+  bool isLocationEnabled = false;
+  Future<LocationPermission> permission =
+      Geolocator.checkPermission() as Future<LocationPermission>;
+  // var responseRes;
+
+  void getParams(double lat, double lon) async {
+    var url =
+        "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=b4b035e79b44eeefd57ea1289ae67f35";
+
+    var response = http
+        .get(Uri.parse(url))
+        .then((resp) => {
+              setState(() {
+                responseRes = json.decode(resp.body);
+              }),
+              print(responseRes)
+            })
+        .catchError((onError) => {print(onError)});
+  }
+
+  Future checkPermission() async {
+    if (permission == LocationPermission.denied) {
+      await Geolocator.requestPermission();
+      return false;
+    } else if (permission == LocationPermission.deniedForever) {
+      await Geolocator.openAppSettings();
+      return false;
+    } else {
+      isLocationEnabled = true;
+      var position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+      print('${position.latitude} , ${position.longitude}');
+      getParams(position.latitude as double, position.longitude as double);
+      return true;
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    checkPermission();
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +127,9 @@ class _CropViewState extends State<CropView> {
 
           // Sensors(),
           // const SizedBox(height: 20),
-          WeatherCard(weatherDetails: null,),
+           WeatherCard(
+            weatherDetails: responseRes,
+          ),
 
           SenorCard(),
           

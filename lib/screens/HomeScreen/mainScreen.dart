@@ -233,13 +233,13 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 CustomIcon(
                   icon: const Icon(
-                    Icons.settings_suggest,
+                    Icons.medical_information,
                     color: AppColor.iconColor,
                     size: 25,
                   ),
                   text: 'Suggest',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/fertilizer-rec');
                   },
                   background: AppColor.circleColor,
                 ),

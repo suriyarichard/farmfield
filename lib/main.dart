@@ -2,8 +2,11 @@ import 'package:farmfield/e-commers/model/cart_model.dart';
 import 'package:farmfield/e-commers/pages/home_page.dart';
 import 'package:farmfield/firebase_options.dart';
 import 'package:farmfield/provider/authProvider.dart';
+import 'package:farmfield/screens/crop_predictor/result.dart';
 
 import 'package:farmfield/screens/dashboard/dashboard.dart';
+import 'package:farmfield/screens/fert_rec/fertilizer_recommender.dart';
+import 'package:farmfield/screens/fert_rec/result.dart';
 import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/splashscreen/splashscreen.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
@@ -67,6 +70,10 @@ class MyApp extends StatelessWidget {
           '/store': (context) => Ecommer(),
           '/map': (context) => PropertyFieldMap(),
           '/reco': (context) => CropRec(),
+          FertilizerRecResult.routeName: (context) =>
+              const FertilizerRecResult(),
+          FertRecommendizer.routeName: (context) => const FertRecommendizer(),
+          CropRecResult.routeName: (context) => const CropRecResult(),
         },
       ),
     );
