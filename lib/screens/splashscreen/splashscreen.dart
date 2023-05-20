@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -38,9 +38,16 @@ class _SplashScreenState extends State<SplashScreen> {
             width: 200.0,
             height: 200.0,
             decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/chicken.png")),
+                image: DecorationImage(image: AssetImage("assets/logo.png")),
                 // color: Colors.blue,
                 borderRadius: const BorderRadius.all(Radius.circular(30.0))),
+          ),
+          Text(
+            "Farm. Tech .Thrive",
+            style: GoogleFonts.robotoMono(
+              fontSize: 14,
+              color: Colors.black,
+            ),
           ),
           SizedBox(height: 50),
           const SpinKitCircle(
