@@ -13,6 +13,7 @@ class CropServiceF {
     if (cropSnapshot.exists) {
       Map<String, dynamic> data = cropSnapshot.data() as Map<String, dynamic>;
       cropList = data['crop'];
+      
     } else {
       print("object");
     }
@@ -37,10 +38,11 @@ class CropServiceF {
 // Add timeline
   Future<dynamic> addTime(context, cropname, name, amount) async {
     DocumentSnapshot cropDatas = await cropData.doc(uid).get();
+int? number = int.tryParse(amount);
 
     Map<String, dynamic> timelineData = {
       'name': name,
-      'amount': amount,
+      'amount': number,
       'createdAt': DateTime.now(),
     };
       print("timelineData $timelineData ");
@@ -54,9 +56,35 @@ class CropServiceF {
         if (crop['cropname'] == cropname) {
           // print("jjd${crop['cropname'] == cropname}");
           crop['timeline'].add(timelineData);
+
+        
+
+          int totalAmt = 0;
+          var timelinehistory = crop['timeline'];
+          for (var timeline in timelinehistory) {
+            if (timeline.containsKey('amount') && timeline['amount'] is int) {
+              totalAmt += timeline['amount'] as int;
+            }
+          }
+          
+
+          // if(crop.containsKey('totalAmount')){
+          //   totalAmt = crop['totalAmount'];
+          // }
+          crop['totalAmount']= totalAmt;
+
+
+          print("amount $totalAmt ");
+
+        // if(crops.containsKey('totalAmount')) {}
+
+
+
         }
       }
       print("Crops $crops");
+
+
 
       await FirebaseFirestore.instance
           .collection('users')

@@ -55,7 +55,7 @@ class _TimeLineCardState extends State<TimeLineCard> {
                           // "Start",
                           style: GoogleFonts.robotoMono(
                               fontSize: 18, fontWeight: FontWeight.w600)),
-                      Text("Rs: ${widget.amount}",
+                      Text("Rs:${widget.amount}",
                           // "Start",
                           style: GoogleFonts.robotoMono(
                               fontSize: 18, fontWeight: FontWeight.w600)),
