@@ -27,6 +27,7 @@ class _TimelineState extends State<Timeline> {
   CropServiceF cropServiceF = CropServiceF();
   var timelinehistory;
   var cropDetails;
+  var totalAmt = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _TimelineState extends State<Timeline> {
                       elevation: 20,
                       context: context,
                       builder: (context) {
-                        return AddTimeline(refresh: () => setState(() {}));
+                        return AddTimeline(id: widget.id, refresh: () => setState(() {}));
                       });
                 },
                 child: SmallButton(
@@ -93,14 +94,25 @@ class _TimelineState extends State<Timeline> {
                 } else {
                   // timelinehistory = snapshot.data;
                   cropDetails = snapshot.data;
-                  print("CropDetails $cropDetails");
+                  // print("CropDetails $cropDetails");
                   for (var crop in cropDetails) {
                     if (crop['cropname'] == widget.id) {
                       timelinehistory = crop['timeline'];
                     }
                   }
-                  print(timelinehistory);
+                  // print(timelinehistory);
+                  
+                  // Calculate subTotal
 
+                  for (var timeline in timelinehistory) {
+                    print( timeline['amount'] );
+                    // T totalAmt = timeline['amount'];
+                    // if(timeline['amount'] != ''){
+
+                    // totalAmt += timeline['amount'] as T;
+                    // }
+                  }
+  
                   // print("hello ${snapshot.data['Name']}");
                   // Call the function from the instance of MyClass and display the fetched data
                   if (timelinehistory.length == 0) {
@@ -122,18 +134,39 @@ class _TimelineState extends State<Timeline> {
                         itemCount: timelinehistory.length,
                         itemBuilder: (BuildContext context, int index) {
                           return TimeLineCard(
+                            
                             createdAt:
                                 snapshot.data[index]['createdAt'] as Timestamp,
                             eventName:
                                 timelinehistory[index]['name'].toString(),
                             amount: timelinehistory[index]['amount'].toString(),
+
                           );
                         },
                       ),
                     );
                   }
                 }
-              })
+              }),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                "Total Amount",
+                style: GoogleFonts.rubik(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: AppColor.titleColor),
+              ),
+              Text(
+                totalAmt.toString(),
+                style: GoogleFonts.rubik(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: AppColor.titleColor),
+              ),
+                ],
+              )
         ]);
   }
 }

@@ -10,7 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AddTimeline extends StatefulWidget {
   final Function refresh;
-  const AddTimeline({super.key, required this.refresh});
+  final String id;
+  const AddTimeline({super.key, required this.id, required this.refresh});
 
   @override
   State<AddTimeline> createState() => _AddTimelineState();
@@ -40,7 +41,7 @@ class _AddTimelineState extends State<AddTimeline> {
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                "Add Crop",
+                "Add Timeline",
                 style: GoogleFonts.rubik(
                     fontWeight: FontWeight.w600,
                     fontSize: 21,
@@ -57,7 +58,7 @@ class _AddTimelineState extends State<AddTimeline> {
                   Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        "Crop Name",
+                        "Activity Name",
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
@@ -70,7 +71,7 @@ class _AddTimelineState extends State<AddTimeline> {
                     controller: nameevent,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Description';
+                        return 'Please Enter Activity Name';
                       }
                       if (value.length < 3) {
                         return 'Please Enter min 3 characters';
@@ -111,11 +112,11 @@ class _AddTimelineState extends State<AddTimeline> {
                     controller: amount,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please Enter Description';
+                        return 'Please Enter amount';
                       }
-                      if (value.length < 3) {
-                        return 'Please Enter min 3 characters';
-                      }
+                      // if (value.length < 1) {
+                      //   return 'Please Enter min 1 characters';
+                      // }
                       if (value.length > 30) {
                         return 'Max 30 characters only Allowed';
                       }
@@ -177,7 +178,7 @@ class _AddTimelineState extends State<AddTimeline> {
                         // await cropsService.add
 
                         await cropServiceF.addTime(
-                            context, croptimeline, nameevent);
+                            context, widget.id, nameevent.text, amount.text);
                         widget.refresh();
                         showSnackBar(
                             context, "New Process added Successfully ");
@@ -186,7 +187,7 @@ class _AddTimelineState extends State<AddTimeline> {
                     },
                     child: CustomButton(
                       child: Text(
-                        "Add the Crop",
+                        "Add to timeline",
                         style: GoogleFonts.rubik(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,

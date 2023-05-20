@@ -34,8 +34,17 @@ class CropServiceF {
     }
   }
 
-  Future<dynamic> addTime(context, cropname, data) async {
+// Add timeline
+  Future<dynamic> addTime(context, cropname, name, amount) async {
     DocumentSnapshot cropDatas = await cropData.doc(uid).get();
+
+    Map<String, dynamic> timelineData = {
+      'name': name,
+      'amount': amount,
+      'createdAt': DateTime.now(),
+    };
+      print("timelineData $timelineData ");
+
 
     if (cropData != null) {
       List<dynamic> crops = cropDatas["crop"] as List<dynamic>;
@@ -43,10 +52,11 @@ class CropServiceF {
       for (int i = 0; i < crops.length; i++) {
         var crop = crops[i];
         if (crop['cropname'] == cropname) {
-          print("jjd${crop['cropname'] == cropname}");
-          crop['timeline'].add(data);
+          // print("jjd${crop['cropname'] == cropname}");
+          crop['timeline'].add(timelineData);
         }
       }
+      print("Crops $crops");
 
       await FirebaseFirestore.instance
           .collection('users')

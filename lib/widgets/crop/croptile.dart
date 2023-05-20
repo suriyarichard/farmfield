@@ -62,8 +62,8 @@ class _CropTileState extends State<CropTile> {
                           SizedBox(
                             width: 40,
                             child: Image.network(
-                              widget.img,
-                              // "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
+                              // widget.img,
+                              "https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png"
                             ),
                           ),
                           Column(
