@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WeatherCard extends StatelessWidget {
-  const WeatherCard({super.key});
+  dynamic weatherDetails;
+
+  WeatherCard( {
+    required this.weatherDetails,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return weatherDetails != null
+    ? SizedBox(
         width: 300,
         height: 200,
         // padding: const EdgeInsets.all(
@@ -16,7 +21,7 @@ class WeatherCard extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          color: Color(0xFffeceee6),
+          color: const Color(0xFffeceee6),
           elevation: 0,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +35,7 @@ class WeatherCard extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Weather",
+                          Text("${weatherDetails['weather'][0]['main']}",
                               style: GoogleFonts.robotoMono(
                                   fontSize: 20, fontWeight: FontWeight.w600)),
                           Row(
@@ -41,7 +46,8 @@ class WeatherCard extends StatelessWidget {
                               const SizedBox(
                                 width: 8,
                               ),
-                              Text("+22'c",
+                              Text(
+                                " ${weatherDetails['main']['temp']} °C",
                                   style: GoogleFonts.robotoMono(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w600)),
@@ -57,29 +63,29 @@ class WeatherCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
-                          children: const [
-                            Icon(Icons.cloud),
-                            Text("+22'c"),
-                            Text('Soil Temp'),
+                          children:  [
+                            const Icon(Icons.wifi_protected_setup_sharp),
+                            Text("${weatherDetails['main']['pressure']} hPa"),
+                            Text('Pressure'),
+                          ],
+                        ),
+                        Column(
+                          children:  [
+                            Icon(Icons.shop_outlined),
+                            Text("${weatherDetails['main']['humidity']} %"),
+                            Text('Humidity'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.speed),
+                            Text("${weatherDetails['wind']['speed']} m/s"),
+                            Text('Wind Speed'),
                           ],
                         ),
                         Column(
                           children: const [
-                            Icon(Icons.sunny),
-                            Text("+22'c"),
-                            Text('Soil Temp'),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Icon(Icons.cloud),
-                            Text("+22'c"),
-                            Text('Soil Temp'),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Icon(Icons.cloud),
+                            Icon(Icons.thermostat_auto),
                             Text("+22'c"),
                             Text('Soil Temp'),
                           ],
@@ -98,6 +104,21 @@ class WeatherCard extends StatelessWidget {
                   ],
                 ),
               ]),
-        ));
+        ))
+        : Center(
+          child: Column(
+            children: const [
+              CircularProgressIndicator(),
+              Text(
+                "Loading...",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
+          ),
+        );
+
   }
 }
