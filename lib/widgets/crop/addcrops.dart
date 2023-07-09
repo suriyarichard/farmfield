@@ -6,7 +6,6 @@ import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AddCrop extends StatefulWidget {
   final Function refresh;
@@ -38,7 +37,7 @@ class _AddCropState extends State<AddCrop> {
               alignment: Alignment.topLeft,
               child: Text(
                 "Add Crop",
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 21,
                     color: const Color(0xFF000000)),
@@ -55,7 +54,7 @@ class _AddCropState extends State<AddCrop> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Crop Name",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -96,7 +95,7 @@ class _AddCropState extends State<AddCrop> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Description",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -141,29 +140,8 @@ class _AddCropState extends State<AddCrop> {
                           "createdAt": DateTime.now(),
                           'uid': FirebaseAuth.instance.currentUser?.uid,
                           'timeline': [],
-                          'img': 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
-
-                          // "eventname": nameevent.text,
-                          // "amount": amount.text,
-                          // 'uid': FirebaseAuth.instance.currentUser?.uid,
-                          // "createdAt": DateTime.now(),
+                          'img': 'https://cdn.pixabay.com/photo/2022/09/19/20/01/wheat-7466358_1280.png',
                         };
-                        // cropList = {
-
-                        //   'Cropname': [
-                        //     {
-                        //       "crop": croptitle.text,
-                        //       "decsription": croptype.text,
-                        //       "createdAt": DateTime.now(),
-                        //       'uid': FirebaseAuth.instance.currentUser?.uid,
-                        //       'crop': [{}],
-                        //       'img':
-                        //           'https://upload.wikimedia.org/wikipedia/commons/9/9d/Tomato.png',
-                        //     }
-                        //   ],
-                        // };
-                        // await cropsService.add
-
                         await cropServiceF.add(context, cropList);
                         widget.refresh();
                         showSnackBar(context, "New Crop added Successfully ");
@@ -173,7 +151,7 @@ class _AddCropState extends State<AddCrop> {
                     child: CustomButton(
                       child: Text(
                         "Add the Crop",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
                             color: Colors.white),
@@ -201,7 +179,7 @@ class _AddCropState extends State<AddCrop> {
                   //     },
                   //     child: Text(
                   //       "Announce Now",
-                  //       style: GoogleFonts.rubik(
+                  //       style: TextStyle(
                   //           fontWeight: FontWeight.w600,
                   //           fontSize: 18,
                   //           color: Colors.white),
@@ -211,7 +189,7 @@ class _AddCropState extends State<AddCrop> {
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text(
                         "Cancel",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18,
                             color: const Color(0xFF000000)),

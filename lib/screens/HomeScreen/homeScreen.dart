@@ -2,7 +2,6 @@ import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:farmfield/widgets/dashboard/sensors.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 "Welcome!",
-                style: GoogleFonts.robotoMono(
+                style: TextStyle(
                     fontSize: 25, fontWeight: FontWeight.w800),
               ),
               const Icon(Icons.notifications_none_outlined)

@@ -3,7 +3,6 @@ import 'package:farmfield/provider/authProvider.dart';
 import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class LoginCard extends StatefulWidget {
@@ -68,7 +67,7 @@ class _LoginCardState extends State<LoginCard> {
                     width: 200,
                     child: Text(
                       "Welcome To My Farm",
-                      style: GoogleFonts.rubik(
+                      style: TextStyle(
                           fontWeight: FontWeight.w800,
                           fontSize: 32,
                           color: Colors.white),
@@ -87,7 +86,7 @@ class _LoginCardState extends State<LoginCard> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "Enter your Phone No",
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                               color: Colors.white),
@@ -153,7 +152,7 @@ class _LoginCardState extends State<LoginCard> {
                         child: CustomButton(
                             child: Text(
                           "Get OTP",
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 18,
                               color: Colors.white),

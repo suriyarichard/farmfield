@@ -5,7 +5,6 @@ import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:farmfield/widgets/auth/login/registerScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +45,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                 alignment: Alignment.topLeft,
                 child: Text(
                   "Verify OTP",
-                  style: GoogleFonts.rubik(
+                  style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 21,
                       color: const Color(0xFF000000)),
@@ -61,7 +60,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Enter Your OTP",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: const Color(0xFF3A3E38)),
@@ -106,7 +105,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   const SizedBox(height: 15),
                   Text(
                     "You'll be getting a sweet little 6-digit number sent your way to  ${widget.phone}  When you get it, just pop it into the input and hit verify OTP ",
-                    style: GoogleFonts.rubik(
+                    style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 13,
                         color: const Color(0xFF2E2E2E)),
@@ -152,7 +151,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       child: CustomButton(
                           child: Text(
                         "Verify OTP",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
                             color: Colors.white),
@@ -169,7 +168,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                         },
                         child: Text(
                           "Change Phone Number",
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 18,
                               color: const Color(0xFF000000)),

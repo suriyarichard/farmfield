@@ -5,7 +5,6 @@ import 'package:farmfield/widgets/trade/addtrade.dart';
 import 'package:farmfield/widgets/trade/trade.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TradeScreen extends StatefulWidget {
@@ -32,14 +31,14 @@ class _TradeScreenState extends State<TradeScreen> {
             ListTile(
               title: Text(
                 'Trade',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Stay Connected and Rate your Self',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: AppColor.titleColor),

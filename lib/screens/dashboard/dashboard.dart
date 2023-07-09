@@ -7,7 +7,6 @@ import 'package:farmfield/screens/maps/mapScreen.dart';
 import 'package:farmfield/screens/profile/profile.dart';
 import 'package:farmfield/screens/trade/tradeScreen.dart';
 import 'package:flutter/material.dart';
-import '../weatherapp/weatherapp.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});

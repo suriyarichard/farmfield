@@ -9,7 +9,6 @@ import 'package:farmfield/services/final.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CropList extends StatefulWidget {
   const CropList({super.key});
@@ -38,14 +37,14 @@ class _CropListState extends State<CropList> {
             ListTile(
               title: Text(
                 'Track the Crop',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Let’s help you',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: AppColor.titleColor),
@@ -72,7 +71,7 @@ class _CropListState extends State<CropList> {
                   children: [
                     Text(
                       "Your CropList",
-                      style: GoogleFonts.rubik(
+                      style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                           color: AppColor.titleColor),
@@ -95,7 +94,7 @@ class _CropListState extends State<CropList> {
                       child: SmallButton(
                         child: Text(
                           "Add New",
-                          style: GoogleFonts.rubik(
+                          style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
                               color: Colors.white),
@@ -108,24 +107,6 @@ class _CropListState extends State<CropList> {
                 const SizedBox(
                   height: 20,
                 ),
-
-                // SizedBox(
-                //   height: MediaQuery.of(context).size.height * 0.75,
-                //   width: 340,
-                //   child: ListView.builder(
-                //     itemCount: 10,
-                //     itemBuilder: (BuildContext context, int index) {
-                //       return CropTile();
-                //     },
-                //   ),
-                // ),
-
-                // const Padding(
-                //   padding: EdgeInsets.all(15.0),
-                //   child: CropTile(),
-                // ),
-
-                // const SenorCard(),
 
                 FutureBuilder(
                   future: cropServiceF.get(),

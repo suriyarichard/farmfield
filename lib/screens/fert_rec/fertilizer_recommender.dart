@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:farmfield/pallets/color.dart';
 import 'package:geolocator/geolocator.dart';
@@ -45,17 +44,7 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
               )
             : Column(
                 children: [
-                  // Container(
-                  //     margin: const EdgeInsets.all(10),
-                  //     padding: const EdgeInsets.all(10),
-                  //     child: const Text(
-                  //       'Check your best recommended crop!',
-                  //       textAlign: TextAlign.center,
-                  //       style: TextStyle(
-                  //           fontSize: 18,
-                  //           fontWeight: FontWeight.bold,
-                  //           letterSpacing: 1),
-                  //     )),
+                 
                   Container(
                     padding: const EdgeInsets.all(10),
                     margin: const EdgeInsets.all(10),
@@ -64,7 +53,6 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: 'temperature',
-                        // hintText: 'Enter the ratio of nitrogen content',
                       ),
                       textInputAction: TextInputAction.next,
                       validator: (val) {
@@ -114,6 +102,16 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
+                    child: Text('Select Soil type below:\nBlack-0 , Clayey-1 , Loamy-2 , Red-3 ,Sandy-4',
+                      style: TextStyle(
+                        fontSize:18,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  Container(
                     padding: const EdgeInsets.all(10),
                     margin: const EdgeInsets.all(10),
                     child: TextFormField(
@@ -121,8 +119,8 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText:
-                            'Black	0 , Clayey	1 , Loamy	2 , Red	3 ,Sandy 4',
-                        hintText: 'Soil type',
+                            'Soil Type',
+                        hintText: '',
                       ),
                       textInputAction: TextInputAction.next,
                       validator: (val) {
@@ -134,6 +132,17 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                     ),
                   ),
                   Container(
+                    margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      'Select Crop Type below:\nBarley-0 , Cotton-1 , Ground Nuts-2 , Maize-3 , Millets-4 , Oil seeds-5 , Paddy-6 , Pulses-7 , Sugarcane-8 , Tobacco-9 , Wheat-10'
+                      ,style: TextStyle(
+                        fontSize:18,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  Container(
                     padding: const EdgeInsets.all(10),
                     margin: const EdgeInsets.all(10),
                     child: TextFormField(
@@ -141,8 +150,8 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText:
-                            'Barley	0 , Cotton	1 , Ground Nuts	2 , Maize	3 , Millets	4 , Oil seeds	5 , Paddy	6 , Pulses	7 , Sugarcane	8 , Tobacco	9 , Wheat	',
-                        hintText: 'Crop Type',
+                            'Crop Type',
+                        hintText: '',
                       ),
                       textInputAction: TextInputAction.next,
                       validator: (val) {
@@ -160,7 +169,7 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       controller: nitrogen,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
-                        labelText: 'ntrogen',
+                        labelText: 'Nitrogen',
                       ),
                       textInputAction: TextInputAction.next,
                       validator: (val) {
@@ -178,7 +187,7 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       controller: potassium,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
-                        labelText: 'pottassium',
+                        labelText: 'Pottassium',
                       ),
                       textInputAction: TextInputAction.next,
                       validator: (val) {
@@ -231,11 +240,6 @@ class _FertRecommendizerState extends State<FertRecommendizer> {
                       },
                     ),
                   ),
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       Navigator.of(context).pushNamed(DiseasePred.routeName);
-                  //     },
-                  //     child: const Text('Predict Crop Disease'))
                 ],
               ),
       ),

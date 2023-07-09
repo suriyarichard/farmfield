@@ -64,7 +64,6 @@ class MyApp extends StatelessWidget {
         // home: AuthCheck(),
         home: SplashScreen(),
         routes: {
-          // '/histroyPage': (context) => const InfoScreen(),
           '/return': (context) => const DashBoard(),
           '/trade': (context) => TradeScreen(),
           '/store': (context) => Ecommer(),

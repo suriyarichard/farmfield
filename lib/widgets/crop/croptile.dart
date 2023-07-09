@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/screens/Crop/infoPage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class CropTile extends StatefulWidget {
@@ -75,12 +74,12 @@ class _CropTileState extends State<CropTile> {
                             children: [
                               Text(widget.title,
                                   // "Apple",
-                                  style: GoogleFonts.robotoMono(
+                                  style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w800)),
                               Text(widget.subtitle,
                                   // "Tempature of the soil is high",
-                                  style: GoogleFonts.robotoMono(
+                                  style: TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w500)),
                             ],

@@ -8,7 +8,6 @@ import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:farmfield/widgets/home/customicon.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:lottie/lottie.dart';
@@ -86,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 Text(
                   "Welcome!",
-                  style: GoogleFonts.robotoMono(
+                  style: TextStyle(
                       fontSize: 25, fontWeight: FontWeight.w800),
                 ),
                 const Icon(Icons.notifications_none_outlined)
@@ -100,18 +99,12 @@ class _MainScreenState extends State<MainScreen> {
                 // Display a loading spinner while waiting for data
                 return Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                // Display an error message if the future throws an error
                 return Text("Error: ${snapshot.error}");
               } else {
-                // Call the function from the instance of MyClass and display the fetched data
                 croplist = snapshot.data;
                 if (croplist.length == 0) {
                   return Text("-");
-                  // return NoData(text: 'No CropList Available');
                 } else {
-                  // return Text(snapshot.data[0]['cropname'].toString());
-                  // return Text(
-                  // snapshot.data[index]['cropname'].toString());
                   return Container(
                     height: 70,
                     margin: const EdgeInsets.all(18),
@@ -164,7 +157,7 @@ class _MainScreenState extends State<MainScreen> {
                                     return Text(
                                       snapshot.data[index]['cropname']
                                           .toString(),
-                                      style: GoogleFonts.robotoMono(
+                                      style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.black,
                                           fontWeight: FontWeight.w400),
@@ -200,7 +193,7 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             padding: const EdgeInsets.all(10),
             child: const Text(
-              'Explore More here',
+              'Explore More features here',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold
@@ -214,8 +207,8 @@ class _MainScreenState extends State<MainScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width:70,
-                  height: 70,
+                  width:150,
+                  height: 100,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.black,
@@ -234,10 +227,13 @@ class _MainScreenState extends State<MainScreen> {
                             color: AppColor.iconColor,
                             size: 25,
                           ),
+                          SizedBox(height:5),
                           const Text(
                             'Fertilizer Recommender',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Colors.white
+                              color: Colors.white,
+                              fontSize: 16
                             ),
                           )
                       ]),
@@ -245,39 +241,40 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
+                  width:150,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.black,
+                  ),
+                  padding: EdgeInsets.all(10),
+                  // width: MediaQuery.of(context).size.width * 0.3,
+                  alignment: Alignment.center,
                   child: Center(
-                    child: CustomIcon(
-                      icon: const Icon(
-                        Icons.crop,
-                        color: AppColor.iconColor,
-                        size: 25,
-                      ),
-                      text: 'Crop Recommender',
-                      onPressed: () {
+                    child: InkWell(
+                       onTap: () {
                         Navigator.pushNamed(context, '/reco');
                       },
-                      background: AppColor.circleColor,
+                      child: Column(children: [
+                          Icon(
+                            Icons.compare_arrows_sharp,
+                            color: AppColor.iconColor,
+                            size: 25,
+                          ),
+                          SizedBox(height:5),
+                          const Text(
+                            'Crop Recommender',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16
+                            ),
+                          )
+                      ]),
                     ),
                   ),
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  child: Center(
-                    child: CustomIcon(
-                      icon: const Icon(
-                        Icons.store,
-                        color: AppColor.iconColor,
-                        size: 25,
-                      ),
-                      text: 'Market',
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/store');
-                      },
-                      background: AppColor.circleColor,
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ),

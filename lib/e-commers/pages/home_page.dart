@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../components/grocery_item_tile.dart';
 import '../model/cart_model.dart';
@@ -82,7 +81,7 @@ class _EcommerState extends State<Ecommer> {
             child: Text(
               "Let's provide you best solution for you",
               // order fresh items for you",
-              style: GoogleFonts.notoSerif(
+              style: TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
@@ -103,7 +102,7 @@ class _EcommerState extends State<Ecommer> {
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
               "Fresh Items",
-              style: GoogleFonts.notoSerif(
+              style: TextStyle(
                 //fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),

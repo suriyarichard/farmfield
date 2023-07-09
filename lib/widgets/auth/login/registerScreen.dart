@@ -1,7 +1,6 @@
 import 'package:farmfield/services/register.service.dart';
 import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../screens/dashboard/dashboard.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -37,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 alignment: Alignment.topLeft,
                 child: Text(
                   "Join your Village Now",
-                  style: GoogleFonts.rubik(
+                  style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 21,
                       color: const Color(0xFF000000)),
@@ -61,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Enter your Name",
-                              style: GoogleFonts.rubik(
+                              style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
                                   color: Colors.black),
@@ -94,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Enter your Age",
-                              style: GoogleFonts.rubik(
+                              style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
                                   color: Colors.black),
@@ -127,7 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Enter Your State",
-                              style: GoogleFonts.rubik(
+                              style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
                                   color: Colors.black),
@@ -160,7 +159,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Enter your District Name",
-                              style: GoogleFonts.rubik(
+                              style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
                                   color: Colors.black),
@@ -194,7 +193,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               "Terms & Conditions | Privacy Policy",
-                              style: GoogleFonts.rubik(
+                              style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
                                   color: Colors.black),
@@ -240,7 +239,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 : CustomButton(
                                     child: Text(
                                     "Join the village",
-                                    style: GoogleFonts.rubik(
+                                    style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
                                         color: Colors.white),

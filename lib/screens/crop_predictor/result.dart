@@ -16,7 +16,7 @@ class _CropRecResultState extends State<CropRecResult> {
   List<dynamic> relatedPhotos = [];
 
   Future fetchResult(data) async {
-    var url = "https://crop-recommender-api-fertilizerapi.bunnyenv.com/predict";
+    var url = "https://crop-recommender-api-farmtrackapis.bunnyenv.com/predict";
     print(data);
     var response = await http.post(
       Uri.parse(url),

@@ -18,7 +18,7 @@ class _FertilizerRecResultState extends State<FertilizerRecResult> {
 
 
   Future fetchResult(data) async {
-    var url = "https://fastapi-fertilizerapi.bunnyenv.com/predict";
+    var url = "https://fertilizer-prediction-api-farmtrackapis.bunnyenv.com/predict";
     print(data);
     var response = await http.post(
       Uri.parse(url),
@@ -71,30 +71,35 @@ class _FertilizerRecResultState extends State<FertilizerRecResult> {
                             ),
                           ),
                         ),
-                        FutureBuilder(
-                        future: getRelatedPhotos(respRes,
-                            "meVVQQl8reHwlYlP0EFzShTH_OuIr3OTkm3hO2gE1tg"),
-                        builder: (context, snapshot) {
-                          return 
-                          relatedPhotos != null 
-                          ? Container(
-                            height: 400,
-                            width: MediaQuery.of(context).size.width * 1,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: relatedPhotos.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    margin: const EdgeInsets.all(10),
-                                    child: Image.network(
-                                      relatedPhotos[index]['urls']['small'],
-                                      fit: BoxFit.cover,
-                                    ),
-                                  );
-                                }),
-                          )
-                          : const CircularProgressIndicator();
-                        })
+                        Column(
+                          children: [
+                            Text('Related images'),
+                            FutureBuilder(
+                            future: getRelatedPhotos(respRes,
+                                "meVVQQl8reHwlYlP0EFzShTH_OuIr3OTkm3hO2gE1tg"),
+                            builder: (context, snapshot) {
+                              return 
+                              relatedPhotos != null 
+                              ? Container(
+                                height: 400,
+                                width: MediaQuery.of(context).size.width * 1,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: relatedPhotos.length,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        margin: const EdgeInsets.all(10),
+                                        child: Image.network(
+                                          relatedPhotos[index]['urls']['small'],
+                                          fit: BoxFit.cover,
+                                        ),
+                                      );
+                                    }),
+                              )
+                              : const CircularProgressIndicator();
+                            }),
+                          ],
+                        )
                     ]))
                   : const CircularProgressIndicator();
             }));

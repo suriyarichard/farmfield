@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WeatherCard extends StatelessWidget {
   dynamic weatherDetails;
@@ -12,7 +11,7 @@ class WeatherCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return weatherDetails != null
     ? SizedBox(
-        width: 300,
+        width: MediaQuery.of(context).size.width * 0.95,
         height: 200,
         // padding: const EdgeInsets.all(
         //   8,
@@ -36,7 +35,7 @@ class WeatherCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("${weatherDetails['weather'][0]['main']}",
-                              style: GoogleFonts.robotoMono(
+                              style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600)),
                           Row(
                             children: [
@@ -48,7 +47,7 @@ class WeatherCard extends StatelessWidget {
                               ),
                               Text(
                                 " ${weatherDetails['main']['temp']} °C",
-                                  style: GoogleFonts.robotoMono(
+                                  style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w600)),
                             ],
@@ -99,7 +98,7 @@ class WeatherCard extends StatelessWidget {
                     // const Center(
                     //     child: Text(
                     //   "locatorName",
-                    //   // style: GoogleFonts.robotoMono(fontSize: 20),
+                    //   // style: TextStyle(fontSize: 20),
                     // ))
                   ],
                 ),

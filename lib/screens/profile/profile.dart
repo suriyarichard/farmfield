@@ -5,7 +5,6 @@ import 'package:farmfield/services/user.service.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class Profile extends StatefulWidget {
@@ -33,7 +32,7 @@ class _ProfileState extends State<Profile> {
             ListTile(
               title: Text(
                 'My Account',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),

@@ -1,7 +1,6 @@
 import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/screens/crop_predictor/result.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
@@ -84,14 +83,14 @@ class _CropRecState extends State<CropRec> {
             ListTile(
               title: Text(
                 'Recommended Crop',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Check your best recommended crop!',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: AppColor.titleColor),
@@ -110,17 +109,6 @@ class _CropRecState extends State<CropRec> {
               )
             : Column(
                 children: [
-                  // Container(
-                  //     margin: const EdgeInsets.all(10),
-                  //     padding: const EdgeInsets.all(10),
-                  //     child: const Text(
-                  //       'Check your best recommended crop!',
-                  //       textAlign: TextAlign.center,
-                  //       style: TextStyle(
-                  //           fontSize: 18,
-                  //           fontWeight: FontWeight.bold,
-                  //           letterSpacing: 1),
-                  //     )),
                   Container(
                     padding: const EdgeInsets.all(10),
                     margin: const EdgeInsets.all(10),
@@ -276,11 +264,6 @@ class _CropRecState extends State<CropRec> {
                       },
                     ),
                   ),
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       Navigator.of(context).pushNamed(DiseasePred.routeName);
-                  //     },
-                  //     child: const Text('Predict Crop Disease'))
                 ],
               ),
       ),

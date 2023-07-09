@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -44,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             "Farm. Tech .Thrive",
-            style: GoogleFonts.robotoMono(
+            style: TextStyle(
               fontSize: 14,
               color: Colors.black,
             ),

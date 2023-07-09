@@ -7,7 +7,6 @@ import 'package:farmfield/widgets/crop/timelinecard.dart';
 import 'package:farmfield/widgets/trade/callButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class TradeCard extends StatefulWidget {
@@ -58,12 +57,12 @@ class _TradeCardState extends State<TradeCard> {
           borderRadius: BorderRadius.circular(15.0),
         ),
         // color: Colors.amber,
-        color: Colors.primaries[Random().nextInt((Colors.primaries.length))],
-        // random.nextInt(255),
-        // random.nextInt(255),
-        // random.nextInt(255),
-        // 1,
-        // ),
+        color: Color.fromRGBO(
+                    Random().nextInt(222),
+                    Random().nextInt(210),
+                    Random().nextInt(200),
+                    1,
+                  ),
         elevation: 2,
         child: Column(
           // mainAxisSize: MainAxisSize.min,
@@ -92,24 +91,25 @@ class _TradeCardState extends State<TradeCard> {
                                   AsyncSnapshot<dynamic> snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
-                                  // Display a loading spinner while waiting for data
                                   return const Center(
                                       child: CircularProgressIndicator());
                                 } else if (snapshot.hasError) {
-                                  // Display an error message if the future throws an error
                                   return Text("Error: ${snapshot.error}");
                                 } else {
                                   name = snapshot.data;
-                                  // print("hello ${snapshot.data['Name']}");
-                                  // Call the function from the instance of MyClass and display the fetched data
                                   if (name.length == 0) {
                                     return Text("-");
-                                    // return NoData(text: 'No Profile Available',);
                                   } else {
                                     return SizedBox(
-                                      width: 55,
+                                      width: 60,
                                       child: Text(
-                                        snapshot.data[0]['name'].toString(),
+                                        ''
+                                        // snapshot.data[0]['name'].toString(),
+                                        // textAlign: TextAlign.center,
+                                        // style: TextStyle(
+                                          
+                                        //   color: Colors.white
+                                        // ),
                                       ),
                                     );
                                   }
@@ -127,91 +127,58 @@ class _TradeCardState extends State<TradeCard> {
                         children: [
                           Text(
                             "Product: ${widget.tradeTitle}",
-                            style: GoogleFonts.rubik(
+                            style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
                                 color: Colors.white),
                           ),
                           Text(
                             "Kg: ${widget.kg}",
-                            style: GoogleFonts.rubik(
+                            style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                                 color: Colors.white),
                           ),
                           Text(
                             "Price: ₹${widget.price}",
-                            style: GoogleFonts.rubik(
+                            style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                                 color: Colors.white),
                           ),
                           Text(
                             "Phone no:${widget.phoneNumber}",
-                            style: GoogleFonts.rubik(
+                            style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                                 color: Colors.white),
                           ),
                         ],
                       ),
-                      // const SizedBox(
-                      //   width: 30,
-                      // ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                              onTap: widget.onTap, child: Icon(Icons.call))
-                          // TextButton(
-                          //     style: TextButton.styleFrom(
-                          //       primary: Colors.white,
-                          //       backgroundColor: Colors.black,
-                          //       onSurface: Colors.grey,
-                          //     ),
-                          //     onPressed: widget.onTap,
-                          //     child: Text(
-                          //       "Call",
-                          //       style: GoogleFonts.rubik(
-                          //           fontWeight: FontWeight.w600,
-                          //           fontSize: 10,
-                          //           color: Colors.white),
-                          //     )),
+                      Container(
+                        width: 70,
+                        height: 70,
 
-                          // Text(
-                          //   // FormattedDate,
-                          //   "View more",
-                          //   style: GoogleFonts.rubik(
-                          //       fontWeight: FontWeight.w400,
-                          //       fontSize: 14,
-                          //       color: Colors.black),
-                          // ),
-                        ],
-                      ),
-                      // GestureDetector(
-                      //   onTap: onTap,
-                      //   child: CallButton(
-                      //       child: Text(
-                      //     "Call",
-                      //     style: GoogleFonts.rubik(
-                      //         fontWeight: FontWeight.w600,
-                      //         fontSize: 16,
-                      //         color: Colors.white),
-                      //   )),
-                      // ),
+                        child:Center(
+                          child: GestureDetector(
+                                onTap: widget.onTap, child: Icon(Icons.call)),
+                        ) ,
+                      )
+                      
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        FormattedDate,
-                        // "View more",
-                        style: GoogleFonts.rubik(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Colors.black),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Created on - $FormattedDate',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 10,
+                              color: Colors.white),
+                        ),
                       ),
                     ],
                   ),

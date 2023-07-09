@@ -6,7 +6,6 @@ import 'package:farmfield/widgets/crop/copy.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AddTimeline extends StatefulWidget {
   final Function refresh;
@@ -42,7 +41,7 @@ class _AddTimelineState extends State<AddTimeline> {
               alignment: Alignment.topLeft,
               child: Text(
                 "Add Timeline",
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 21,
                     color: const Color(0xFF000000)),
@@ -59,7 +58,7 @@ class _AddTimelineState extends State<AddTimeline> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Activity Name",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -100,7 +99,7 @@ class _AddTimelineState extends State<AddTimeline> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Amount",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -188,7 +187,7 @@ class _AddTimelineState extends State<AddTimeline> {
                     child: CustomButton(
                       child: Text(
                         "Add to timeline",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
                             color: Colors.white),
@@ -215,7 +214,7 @@ class _AddTimelineState extends State<AddTimeline> {
                   //     },
                   //     child: Text(
                   //       "Announce Now",
-                  //       style: GoogleFonts.rubik(
+                  //       style: TextStyle(
                   //           fontWeight: FontWeight.w600,
                   //           fontSize: 18,
                   //           color: Colors.white),
@@ -228,7 +227,7 @@ class _AddTimelineState extends State<AddTimeline> {
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text(
                         "Cancel",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18,
                             color: const Color(0xFF000000)),

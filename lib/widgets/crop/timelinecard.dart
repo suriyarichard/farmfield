@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class TimeLineCard extends StatefulWidget {
@@ -53,16 +52,16 @@ class _TimeLineCardState extends State<TimeLineCard> {
                     children: [
                       Text(widget.eventName,
                           // "Start",
-                          style: GoogleFonts.robotoMono(
+                          style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w600)),
                       Text("Rs:${widget.amount}",
                           // "Start",
-                          style: GoogleFonts.robotoMono(
+                          style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w600)),
                       Text(
                         FormattedDate,
                         // "3/4/2023, 5:30 am",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 11,
                             color: Colors.black),

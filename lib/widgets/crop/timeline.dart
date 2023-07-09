@@ -5,7 +5,6 @@ import 'package:farmfield/services/infoCrop.service.dart';
 import 'package:farmfield/widgets/button/smallbutton.dart';
 import 'package:farmfield/widgets/crop/addtimeline.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:farmfield/widgets/crop/timelinecard.dart';
 
 class Timeline extends StatefulWidget {
@@ -41,7 +40,7 @@ class _TimelineState extends State<Timeline> {
             children: [
               Text(
                 "Crop Status",
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                     color: AppColor.titleColor),
@@ -65,7 +64,7 @@ class _TimelineState extends State<Timeline> {
                 child: SmallButton(
                   child: Text(
                     "Set up ",
-                    style: GoogleFonts.rubik(
+                    style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                         color: Colors.white),
@@ -128,7 +127,7 @@ class _TimelineState extends State<Timeline> {
                           ),
                           Text(
                                     "No Timeline added, Add Timeline Activity",
-                                    style: GoogleFonts.rubik(
+                                    style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
                                         color: const Color.fromARGB(255, 27, 29, 26)),
@@ -155,14 +154,14 @@ class _TimelineState extends State<Timeline> {
                               ),
                               Text(
                                 "Total Amount",
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,
                                     color: const Color.fromARGB(255, 27, 29, 26)),
                               ),
                               Text(
                                 'Rs: ${totalAmt.toString()}',
-                                style: GoogleFonts.rubik(
+                                style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,
                                     color: AppColor.titleColor),

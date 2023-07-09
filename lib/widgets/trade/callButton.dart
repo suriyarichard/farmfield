@@ -17,8 +17,13 @@ class CallButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
           color: AppColor.buttonColor,
         ),
-        child: Center(
-          child: child,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: child,
+            ),
+          ],
         ));
   }
 }

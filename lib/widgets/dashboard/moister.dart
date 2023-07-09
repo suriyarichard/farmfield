@@ -1,7 +1,6 @@
 // import 'package:farmfield/widgets/pieChart.dart';
 import 'package:d_chart/d_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SenorCard extends StatelessWidget {
   const SenorCard({super.key});
@@ -32,7 +31,7 @@ class SenorCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Soil Moisture",
-                              style: GoogleFonts.robotoMono(
+                              style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600)),
                         ],
                       ),

@@ -3,7 +3,6 @@ import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:farmfield/widgets/dashboard/weatherCard.dart';
 import 'package:farmfield/widgets/home/customicon.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -85,14 +84,14 @@ class _CropViewState extends State<CropView> {
             ListTile(
               title: Text(
                 'Crop',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Let’s you Know details about you crop',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: AppColor.titleColor),
@@ -117,7 +116,7 @@ class _CropViewState extends State<CropView> {
               children: [
                 Text(
                   "Crop Name:${widget.title}",
-                  style: GoogleFonts.robotoMono(
+                  style: TextStyle(
                       fontSize: 25, fontWeight: FontWeight.w800),
                 ),
                 // const Icon(Icons.notifications_none_outlined)

@@ -2,7 +2,6 @@ import 'package:farmfield/pallets/color.dart';
 import 'package:farmfield/widgets/crop/timeline.dart';
 import 'package:farmfield/widgets/dashboard/moister.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class InfoScreen extends StatefulWidget {
   // const InfoScreen({super.key});
@@ -34,14 +33,14 @@ class _InfoScreenState extends State<InfoScreen> {
             ListTile(
               title: Text(
                 'InfoScreen',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25,
                     color: AppColor.titleColor),
               ),
               subtitle: Text(
                 'Let’s help you',
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     color: AppColor.titleColor),

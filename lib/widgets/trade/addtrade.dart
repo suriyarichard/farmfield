@@ -3,7 +3,6 @@ import 'package:farmfield/services/trade.service.dart';
 import 'package:farmfield/widgets/auth/login/customButton.dart';
 import 'package:farmfield/widgets/snackbar/snackbar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AddTrade extends StatefulWidget {
   final Function refresh;
@@ -36,7 +35,7 @@ class _AddTradeState extends State<AddTrade> {
               alignment: Alignment.topLeft,
               child: Text(
                 "Add Product to sale!!",
-                style: GoogleFonts.rubik(
+                style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 21,
                     color: const Color(0xFF000000)),
@@ -53,7 +52,7 @@ class _AddTradeState extends State<AddTrade> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Title",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -98,7 +97,7 @@ class _AddTradeState extends State<AddTrade> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Kg",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -135,7 +134,7 @@ class _AddTradeState extends State<AddTrade> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Price",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -176,7 +175,7 @@ class _AddTradeState extends State<AddTrade> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "Phone",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                             color: Colors.black),
@@ -239,7 +238,7 @@ class _AddTradeState extends State<AddTrade> {
                     child: CustomButton(
                         child: Text(
                       "Confrim to Trade",
-                      style: GoogleFonts.rubik(
+                      style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                           color: Colors.white),
@@ -252,7 +251,7 @@ class _AddTradeState extends State<AddTrade> {
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text(
                         "Cancel",
-                        style: GoogleFonts.rubik(
+                        style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 18,
                             color: const Color(0xFF000000)),

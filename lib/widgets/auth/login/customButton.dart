@@ -1,6 +1,5 @@
 import 'package:farmfield/pallets/color.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton extends StatelessWidget {
   final Widget child;

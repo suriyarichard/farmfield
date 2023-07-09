@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -29,7 +28,7 @@ class IntroScreen extends StatelessWidget {
               child: Text(
                 'We deliver groceries at your doorstep',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.notoSerif(
+                style: TextStyle(
                     fontSize: 36, fontWeight: FontWeight.bold),
               ),
             ),
