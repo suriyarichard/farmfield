@@ -70,14 +70,6 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
   }
 
-  // List navigateOptions = [
-  //   "Overview",
-  //   "Corn",
-  //   "Maize",
-  //   "Community",
-  //   "Profile",
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,14 +173,6 @@ class _MainScreenState extends State<MainScreen> {
                                 }
                               },
                             ),
-                            // child: Text(
-                            //   "${navigateOptions[index]}",
-                            //   style: const TextStyle(
-                            //     fontSize: 16,
-                            //     fontWeight: FontWeight.bold,
-                            //     color: Colors.black,
-                            //   ),
-                            // ),
                           ),
                         );
                       },
@@ -213,59 +197,86 @@ class _MainScreenState extends State<MainScreen> {
           const SizedBox(
             height: 10,
           ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: const Text(
+              'Explore More here',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+              )
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomIcon(
-                  icon: const Icon(
-                    Icons.map,
-                    color: AppColor.iconColor,
-                    size: 25,
+                Container(
+                  width:70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.black,
                   ),
-                  text: 'Field view',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/map');
-                  },
-                  background: AppColor.circleColor,
+                  padding: EdgeInsets.all(10),
+                  // width: MediaQuery.of(context).size.width * 0.3,
+                  alignment: Alignment.center,
+                  child: Center(
+                    child: InkWell(
+                       onTap: () {
+                        Navigator.pushNamed(context, '/fertilizer-rec');
+                      },
+                      child: Column(children: [
+                          Icon(
+                            Icons.medical_information,
+                            color: AppColor.iconColor,
+                            size: 25,
+                          ),
+                          const Text(
+                            'Fertilizer Recommender',
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
+                          )
+                      ]),
+                    ),
+                  ),
                 ),
-                CustomIcon(
-                  icon: const Icon(
-                    Icons.medical_information,
-                    color: AppColor.iconColor,
-                    size: 25,
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: Center(
+                    child: CustomIcon(
+                      icon: const Icon(
+                        Icons.crop,
+                        color: AppColor.iconColor,
+                        size: 25,
+                      ),
+                      text: 'Crop Recommender',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/reco');
+                      },
+                      background: AppColor.circleColor,
+                    ),
                   ),
-                  text: 'Suggest',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/fertilizer-rec');
-                  },
-                  background: AppColor.circleColor,
                 ),
-                CustomIcon(
-                  icon: const Icon(
-                    Icons.crop,
-                    color: AppColor.iconColor,
-                    size: 25,
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: Center(
+                    child: CustomIcon(
+                      icon: const Icon(
+                        Icons.store,
+                        color: AppColor.iconColor,
+                        size: 25,
+                      ),
+                      text: 'Market',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/store');
+                      },
+                      background: AppColor.circleColor,
+                    ),
                   ),
-                  text: 'Recommender',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/reco');
-                  },
-                  background: AppColor.circleColor,
-                ),
-                CustomIcon(
-                  icon: const Icon(
-                    Icons.store,
-                    color: AppColor.iconColor,
-                    size: 25,
-                  ),
-                  text: 'Market',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/store');
-                  },
-                  background: AppColor.circleColor,
                 ),
               ],
             ),

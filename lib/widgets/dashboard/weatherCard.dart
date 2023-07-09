@@ -108,9 +108,9 @@ class WeatherCard extends StatelessWidget {
         : Center(
           child: Column(
             children: const [
-              CircularProgressIndicator(),
+              Icon(Icons.cloud,size:20),
               Text(
-                "Loading...",
+                "Loading weather...",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold

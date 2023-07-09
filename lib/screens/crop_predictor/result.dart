@@ -16,7 +16,7 @@ class _CropRecResultState extends State<CropRecResult> {
   List<dynamic> relatedPhotos = [];
 
   Future fetchResult(data) async {
-    var url = "http://127.0.0.1:8000/predict";
+    var url = "https://crop-recommender-api-fertilizerapi.bunnyenv.com/predict";
     print(data);
     var response = await http.post(
       Uri.parse(url),
@@ -26,6 +26,7 @@ class _CropRecResultState extends State<CropRecResult> {
       body: jsonEncode(data),
     );
     respRes = json.decode(response.body);
+    print(respRes);
   }
 
   Future<List<dynamic>> getRelatedPhotos(String query, String accessKey,
@@ -45,15 +46,6 @@ class _CropRecResultState extends State<CropRecResult> {
     relatedPhotos = jsonDecode(response.body)['results'];
 
     return relatedPhotos;
-
-    // if (response.statusCode == 200) {
-    //   final Map<String, dynamic> data = jsonDecode(response.body);
-    //   final List<dynamic> photos = data['results'];
-    //   return photos;
-    // } else {
-    //   print('Error: ${response.statusCode}');
-
-    // }
   }
 
   @override
@@ -75,7 +67,7 @@ class _CropRecResultState extends State<CropRecResult> {
                     Container(
                       padding: const EdgeInsets.only(top:20 , bottom: 20),
                       child: Text(
-                        "Recommended Crop - ${respRes['prediction']}",
+                        "Recommended Crop - ${respRes}",
                         style: const TextStyle(
                           fontSize: 18,
                         ),
@@ -92,7 +84,7 @@ class _CropRecResultState extends State<CropRecResult> {
                       ),
                     ),
                     FutureBuilder(
-                        future: getRelatedPhotos(respRes['prediction'],
+                        future: getRelatedPhotos(respRes,
                             "meVVQQl8reHwlYlP0EFzShTH_OuIr3OTkm3hO2gE1tg"),
                         builder: (context, snapshot) {
                           return 
@@ -117,7 +109,14 @@ class _CropRecResultState extends State<CropRecResult> {
                         })
                   ],
                 ))
-              : const CircularProgressIndicator();
+              : Center(
+                  child:  Column(
+                    children: [
+                      const Text('Loading Result...'),
+                      CircularProgressIndicator(),
+                    ],
+                  )
+                );
         },
       ),
     );
